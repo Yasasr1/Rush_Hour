@@ -99,6 +99,175 @@ void display(){
     glEnd();
 
 
+//Buildings--------------------------------------------------
+
+	//Building L1
+    //l
+	glColor3f(1, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(7.5f, 12.0f, 0.0f);              
+    glVertex3f( 7.5f, 4.0f, 0.0f);             
+    glVertex3f( 1.0f,1.0f, 0.0f);              
+    glVertex3f(1.0f,15.0f, 0.0f);             
+    glEnd();  
+    //r
+	glColor3f(0.7, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(15.0f, 15.0f, 0.0f);              
+    glVertex3f( 15.0f, 1.0f, 0.0f);             
+    glVertex3f( 7.5f,4.0f, 0.0f);              
+    glVertex3f(7.5f,12.0f, 0.0f);             
+    glEnd();  
+    //u
+    glColor3f(0.8, 0, 0);
+	glBegin(GL_TRIANGLES);                      
+	glVertex3f(1.0f, 15.0f, 0.0f);              
+    glVertex3f( 15.0f, 15.0f, 0.0f);             
+    glVertex3f( 7.5f,12.0f, 0.0f);                          
+    glEnd();                            
+    //d
+    glColor3f(0.9, 0, 0);
+	glBegin(GL_TRIANGLES);                      
+	glVertex3f(1.0f, 1.0f, 0.0f);              
+    glVertex3f( 15.0f, 1.0f, 0.0f);             
+    glVertex3f( 7.5f,4.0f, 0.0f);                         
+    glEnd();   
+//------------------------------------------------------
+	//Building L2
+    //l
+	glColor3f(1, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(7.5f, 52.0f, 0.0f);              
+    glVertex3f( 7.5f, 44.0f, 0.0f);             
+    glVertex3f( 1.0f,41.0f, 0.0f);              
+    glVertex3f(1.0f,55.0f, 0.0f);             
+    glEnd();  
+    //r
+	glColor3f(0.7, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(15.0f, 55.0f, 0.0f);              
+    glVertex3f( 15.0f, 41.0f, 0.0f);             
+    glVertex3f( 7.5f,44.0f, 0.0f);              
+    glVertex3f(7.5f,52.0f, 0.0f);             
+    glEnd();  
+    //u
+    glColor3f(0.8, 0, 0);
+	glBegin(GL_TRIANGLES);                      
+	glVertex3f(1.0f, 55.0f, 0.0f);              
+    glVertex3f( 15.0f, 55.0f, 0.0f);             
+    glVertex3f( 7.5f,52.0f, 0.0f);                          
+    glEnd();                            
+    //d
+    glColor3f(0.9, 0, 0);
+	glBegin(GL_TRIANGLES);                      
+	glVertex3f(1.0f, 41.0f, 0.0f);              
+    glVertex3f( 15.0f, 41.0f, 0.0f);             
+    glVertex3f( 7.5f,44.0f, 0.0f);                         
+    glEnd();      
+//------------------------------------------------------------
+ //Building L3
+    //l
+	glColor3f(1, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(7.5f, 92.0f, 0.0f);              
+    glVertex3f( 7.5f, 84.0f, 0.0f);             
+    glVertex3f( 1.0f,81.0f, 0.0f);              
+    glVertex3f(1.0f,95.0f, 0.0f);             
+    glEnd();  
+    //r
+	glColor3f(0.7, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(15.0f, 95.0f, 0.0f);              
+    glVertex3f( 15.0f, 81.0f, 0.0f);             
+    glVertex3f( 7.5f,84.0f, 0.0f);              
+    glVertex3f(7.5f,92.0f, 0.0f);             
+    glEnd();  
+    //u
+    glColor3f(0.8, 0, 0);
+	glBegin(GL_TRIANGLES);                      
+	glVertex3f(1.0f, 95.0f, 0.0f);              
+    glVertex3f( 15.0f, 95.0f, 0.0f);             
+    glVertex3f( 7.5f,92.0f, 0.0f);                          
+    glEnd();                            
+    //d
+    glColor3f(0.9, 0, 0);
+	glBegin(GL_TRIANGLES);                      
+	glVertex3f(1.0f, 81.0f, 0.0f);              
+    glVertex3f( 15.0f, 81.0f, 0.0f);             
+    glVertex3f( 7.5f,84.0f, 0.0f);                         
+    glEnd();             
+//-------------------------------------------------------------------
+    //Building R1
+    //l
+	glColor3f(1, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(91.5f, 32.0f, 0.0f);              
+    glVertex3f( 91.5f, 24.0f, 0.0f);             
+    glVertex3f( 84.0f,21.0f, 0.0f);              
+    glVertex3f(84.0f,35.0f, 0.0f);             
+    glEnd();  
+    //r
+	glColor3f(0.7, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(99.0f, 35.0f, 0.0f);              
+    glVertex3f( 99.0f, 21.0f, 0.0f);             
+    glVertex3f( 91.5f,24.0f, 0.0f);              
+    glVertex3f(91.5f,32.0f, 0.0f);             
+    glEnd();  
+    //u
+    glColor3f(0.8, 0, 0);
+	glBegin(GL_TRIANGLES);                      
+	glVertex3f(84.0f, 35.0f, 0.0f);              
+    glVertex3f( 99.0f, 35.0f, 0.0f);             
+    glVertex3f( 91.5f,32.0f, 0.0f);                          
+    glEnd();                            
+    //d
+    glColor3f(0.9, 0, 0);
+	glBegin(GL_TRIANGLES);                      
+	glVertex3f(84.0f, 21.0f, 0.0f);              
+    glVertex3f( 99.0f, 21.0f, 0.0f);             
+    glVertex3f( 91.5f,24.0f, 0.0f);                         
+    glEnd();             
+	
+//-----------------------------------------------------------------------
+//Building R2
+    //l
+	glColor3f(1, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(91.5f, 72.0f, 0.0f);              
+    glVertex3f( 91.5f, 64.0f, 0.0f);             
+    glVertex3f( 84.0f,61.0f, 0.0f);              
+    glVertex3f(84.0f,75.0f, 0.0f);             
+    glEnd();  
+    //r
+	glColor3f(0.7, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(99.0f, 75.0f, 0.0f);              
+    glVertex3f( 99.0f, 61.0f, 0.0f);             
+    glVertex3f( 91.5f,64.0f, 0.0f);              
+    glVertex3f(91.5f,72.0f, 0.0f);             
+    glEnd();  
+    //u
+    glColor3f(0.8, 0, 0);
+	glBegin(GL_TRIANGLES);                      
+	glVertex3f(84.0f, 75.0f, 0.0f);              
+    glVertex3f( 99.0f, 75.0f, 0.0f);             
+    glVertex3f( 91.5f,72.0f, 0.0f);                          
+    glEnd();                            
+    //d
+    glColor3f(0.9, 0, 0);
+	glBegin(GL_TRIANGLES);                      
+	glVertex3f(84.0f, 61.0f, 0.0f);              
+    glVertex3f( 99.0f, 61.0f, 0.0f);             
+    glVertex3f( 91.5f,64.0f, 0.0f);                         
+    glEnd();             
+	
+	               
+     
+   
+	
+	//Building Right---------------------------------------------
+
 
     
 
