@@ -57,45 +57,109 @@ void display(){
     glBegin(GL_POLYGON);
     glVertex2f(20,0);
     glVertex2f(20,100);
-    glVertex2f(23,100);
-    glVertex2f(23,0);
+    glVertex2f(21,100);
+    glVertex2f(21,0);
     glEnd();
 
     //Road Right Border
     glColor3f(1.000, 1.000, 1.000);
     glBegin(GL_POLYGON);
-    glVertex2f(77,0);
-    glVertex2f(77,100);
+    glVertex2f(79,0);
+    glVertex2f(79,100);
     glVertex2f(80,100);
     glVertex2f(80,0);
     glEnd();
 
-    //Road Middel Border
-      //TOP
+    //Road Middel LEFT Border
+    //TOP
     glColor3f(1.000, 1.000, 0.000);
     glBegin(GL_POLYGON);
-    glVertex2f(48,roadDivTop+80);
-    glVertex2f(48,roadDivTop+100);
-    glVertex2f(52,roadDivTop+100);
-    glVertex2f(52,roadDivTop+80);
+    glVertex2f(39,roadDivTop+81);
+    glVertex2f(39,roadDivTop+99);
+    glVertex2f(41,roadDivTop+99);
+    glVertex2f(41,roadDivTop+81);
     glEnd();
     
-        //Midle
+    //MidleUP
     glColor3f(1.000, 1.000, 0.000);
     glBegin(GL_POLYGON);
-    glVertex2f(48,roadDivMdl+40);
-    glVertex2f(48,roadDivMdl+60);
-    glVertex2f(52,roadDivMdl+60);
-    glVertex2f(52,roadDivMdl+40);
+    glVertex2f(39,roadDivMdl+61);
+    glVertex2f(39,roadDivMdl+79);
+    glVertex2f(41,roadDivMdl+79);
+    glVertex2f(41,roadDivMdl+61);
+    glEnd();
+
+    //MIDDLE
+    glColor3f(1.000, 1.000, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(39,roadDivMdl+41);
+    glVertex2f(39,roadDivMdl+59);
+    glVertex2f(41,roadDivMdl+59);
+    glVertex2f(41,roadDivMdl+41);
+    glEnd();
+
+    //MidleDOWN
+    glColor3f(1.000, 1.000, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(39,roadDivMdl+21);
+    glVertex2f(39,roadDivMdl+39);
+    glVertex2f(41,roadDivMdl+39);
+    glVertex2f(41,roadDivMdl+21);
     glEnd();
 
     //BOTTOM
      glColor3f(1.000, 1.000, 0.000);
     glBegin(GL_POLYGON);
-    glVertex2f(48,roadDivBtm+0);
-    glVertex2f(48,roadDivBtm+20);
-    glVertex2f(52,roadDivBtm+20);
-    glVertex2f(52,roadDivBtm+0);
+    glVertex2f(39,roadDivBtm+1);
+    glVertex2f(39,roadDivBtm+19);
+    glVertex2f(41,roadDivBtm+19);
+    glVertex2f(41,roadDivBtm+1);
+    glEnd();
+
+    //Road Middel Right Border
+    //TOP
+    glColor3f(1.000, 1.000, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(59,roadDivTop+81);
+    glVertex2f(59,roadDivTop+99);
+    glVertex2f(61,roadDivTop+99);
+    glVertex2f(61,roadDivTop+81);
+    glEnd();
+    
+    //MidleUP
+    glColor3f(1.000, 1.000, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(59,roadDivMdl+61);
+    glVertex2f(59,roadDivMdl+79);
+    glVertex2f(61,roadDivMdl+79);
+    glVertex2f(61,roadDivMdl+61);
+    glEnd();
+
+    //MIDDLE
+    glColor3f(1.000, 1.000, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(59,roadDivMdl+41);
+    glVertex2f(59,roadDivMdl+59);
+    glVertex2f(61,roadDivMdl+59);
+    glVertex2f(61,roadDivMdl+41);
+    glEnd();
+
+    //MidleDOWN
+    glColor3f(1.000, 1.000, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(59,roadDivMdl+21);
+    glVertex2f(59,roadDivMdl+39);
+    glVertex2f(61,roadDivMdl+39);
+    glVertex2f(61,roadDivMdl+21);
+    glEnd();
+
+    //BOTTOM
+     glColor3f(1.000, 1.000, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(59,roadDivBtm+1);
+    glVertex2f(59,roadDivBtm+19);
+    glVertex2f(61,roadDivBtm+19);
+    glVertex2f(61,roadDivBtm+1);
     glEnd();
 
 
@@ -262,14 +326,85 @@ void display(){
     glVertex3f( 91.5f,64.0f, 0.0f);                         
     glEnd();             
 	
-	               
-     
-   
-	
-	//Building Right---------------------------------------------
+	//Building Ends---------------------------------------------
 
-
-    
+//CAR-----------------------------------------------------------
+    //body
+    glColor3f(0, 1, 1);
+	glBegin(GL_POLYGON);                      
+	glVertex3f(24.0f, 14.0f, 0.0f);
+	glVertex3f(25.0f, 15.0f, 0.0f);
+	glVertex3f(35.0f, 15.0f, 0.0f);              
+    glVertex3f(36.0f, 14.0f, 0.0f); 
+    glVertex3f(36.0f, 2.0f, 0.0f);
+    glVertex3f(35.0f, 1.0f, 0.0f);
+     glVertex3f(25.0f, 1.0f, 0.0f);
+    glVertex3f( 24.0f,2.0f, 0.0f);                       
+    glEnd();      
+    //tireLEFTUP
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(23.0f, 12.0f, 0.0f);              
+    glVertex3f( 24.0f, 12.0f, 0.0f);             
+    glVertex3f( 24.0f, 9.0f, 0.0f);              
+    glVertex3f(23.0f,9.0f, 0.0f);             
+    glEnd();  
+    //tireLEFTDOWN
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(23.0f, 6.0f, 0.0f);              
+    glVertex3f( 24.0f, 6.0f, 0.0f);             
+    glVertex3f( 24.0f, 3.0f, 0.0f);              
+    glVertex3f(23.0f,3.0f, 0.0f);             
+    glEnd();  
+    //tireRIGHTUP
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(36.0f, 12.0f, 0.0f);              
+    glVertex3f( 37.0f, 12.0f, 0.0f);             
+    glVertex3f( 37.0f, 9.0f, 0.0f);              
+    glVertex3f(36.0f,9.0f, 0.0f);             
+    glEnd();  
+    //tireRIGHTDOWN
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(36.0f, 6.0f, 0.0f);              
+    glVertex3f( 37.0f, 6.0f, 0.0f);             
+    glVertex3f( 37.0f, 3.0f, 0.0f);              
+    glVertex3f(36.0f,3.0f, 0.0f);             
+    glEnd();  
+    //frontWINDOW
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(26.0f, 10.0f, 0.0f);              
+    glVertex3f( 34.0f, 10.0f, 0.0f);             
+    glVertex3f( 32.0f, 8.5f, 0.0f);              
+    glVertex3f(28.0f, 8.5f, 0.0f);             
+    glEnd();  
+    //backWINDOW
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(26.0f, 4.0f, 0.0f);              
+    glVertex3f( 34.0f, 4.0f, 0.0f);             
+    glVertex3f( 32.0f, 5.5f, 0.0f);              
+    glVertex3f(28.0f, 5.5f, 0.0f);             
+    glEnd();  
+    //leftWINDOW
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(26.0f, 9.5f, 0.0f);              
+    glVertex3f( 26.0f, 4.5f, 0.0f);             
+    glVertex3f( 28.0f, 6.0f, 0.0f);              
+    glVertex3f(28.0f, 8.0f, 0.0f);             
+    glEnd();  
+    //rightWINDOW
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(34.0f, 9.5f, 0.0f);              
+    glVertex3f( 34.0f, 4.5f, 0.0f);             
+    glVertex3f( 32.0f, 6.0f, 0.0f);              
+    glVertex3f(32.0f, 8.0f, 0.0f);             
+    glEnd();  
 
     glFlush();
 	glutSwapBuffers();
