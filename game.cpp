@@ -4,23 +4,18 @@
 #else
 #include <GL/glut.h>
 #endif
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
 #include <string>
-
 //to move the road
 int roadDivTopMost = 0;
 int roadDivTop = 0;
 int roadDivMdl = 0;
 int roadDivBtm = 0;
-
 //track game status 
 int startIndex = 0;
-
 const int font=(int)GLUT_BITMAP_9_BY_15;
-
 void renderBitmapString(float x, float y, void *font,const char *string){
     const char *c;
     glRasterPos2f(x, y);
@@ -28,53 +23,67 @@ void renderBitmapString(float x, float y, void *font,const char *string){
         glutBitmapCharacter(font, *c);
     }
 }
-
-
 void display();
 void startGame();
 void displayMenu();
 void menuKeys(unsigned char key, int x, int y);
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]){
 	glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
     glutInitWindowSize(500,650);
     glutInitWindowPosition(200,20);
     glutCreateWindow("Car Game");
-
     glutDisplayFunc(display);
-   // glutSpecialFunc(spe_key);
-    glutKeyboardFunc(menuKeys );
-
+    //glutSpecialFunc(spe_key);
+    glutKeyboardFunc(menuKeys);
     gluOrtho2D(0,100,0,100);
-
-
    // glutTimerFunc(1000,timer,0);
     glutMainLoop();
-
     return 0;
 }
 
 void display(){
-     
-
-     if(startIndex == 1)
-     {
-        
+    if(startIndex == 1){ 
         startGame();
-     }   
-     else
-     { 
-        
-        displayMenu();
-     }   
-	
+    }   
+    else{ 
+    	displayMenu();
+    }   	
 }
 
-void startGame()
-{
-   
+void menuKeys(unsigned char key, int x, int y) {
+    switch (key){
+        case ' ':
+            if(startIndex==0){
+            	startIndex = 1;
+                roadDivTopMost = 0;
+                roadDivTop = 0;
+                roadDivMdl = 0;
+                roadDivBtm = 0;    
+            }
+            break;
+		case 27:
+            exit(0);
+            break;
+        default:
+            break;
+        }
+        glutPostRedisplay();
+}
+
+void displayMenu(){
+    glClearColor(0, 0, 0,1);
+    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+	glColor3f(1.000, 1.000, 0.000);
+    renderBitmapString(30,80,(void *)font,"Menu eke graphics tika hadapiya methana");
+    renderBitmapString(20,50,(void *)font,"PRESS SPACE TO START");
+	glFlush();
+	glutSwapBuffers();
+}
+
+void startGame(){
+
 	glClearColor(0.337, 0.659, 0.196,1);
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 
@@ -444,41 +453,4 @@ void startGame()
     glFlush();
 	glutSwapBuffers();
 
-}
-
-void displayMenu()
-{
-    glClearColor(0, 0, 0,1);
-    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-
-     glColor3f(1.000, 1.000, 0.000);
-        renderBitmapString(30,80,(void *)font,"Menu eke graphics tika hadapiya methana");
-        renderBitmapString(20,50,(void *)font,"PRESS SPACE TO START");
-
-        glFlush();
-	    glutSwapBuffers();
-}
-
-void menuKeys(unsigned char key, int x, int y) {
-
-      switch (key)
-            {
-                case ' ':
-            if(startIndex==0){
-                startIndex = 1;
-                roadDivTopMost = 0;
-                roadDivTop = 0;
-                roadDivMdl = 0;
-                roadDivBtm = 0;
-                
-            }
-             break;
-
-             case 27:
-                 exit(0);
-             break;
-             default:
-                break;
-        }
-        glutPostRedisplay();
 }
