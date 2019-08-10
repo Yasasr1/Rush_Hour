@@ -1,21 +1,39 @@
+#include<windows.h>
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
 #include <GL/glut.h>
 #endif
-//#include <conio.h>
-#include <stdlib.h>
-#include<string.h>
-//#include<glut.h>
-#include<iostream>//for strlen
-#include<stdlib.h>
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <iostream>
+#include <string>
+
+//to move the road
 int roadDivTopMost = 0;
 int roadDivTop = 0;
 int roadDivMdl = 0;
 int roadDivBtm = 0;
 
+//track game status 
+int startIndex = 0;
+
+const int font=(int)GLUT_BITMAP_9_BY_15;
+
+void renderBitmapString(float x, float y, void *font,const char *string){
+    const char *c;
+    glRasterPos2f(x, y);
+    for (c=string; *c != '\0'; c++) {
+        glutBitmapCharacter(font, *c);
+    }
+}
+
+
 void display();
+void startGame();
+void displayMenu();
+void menuKeys(unsigned char key, int x, int y);
 
 int main(int argc, char *argv[])
 {
@@ -27,10 +45,10 @@ int main(int argc, char *argv[])
 
     glutDisplayFunc(display);
    // glutSpecialFunc(spe_key);
-    //glutKeyboardFunc(processKeys );
+    glutKeyboardFunc(menuKeys );
 
-    glOrtho(0,100,0,100,-1,1);
-    glClearColor(0.184, 0.310, 0.310,1);
+    gluOrtho2D(0,100,0,100);
+
 
    // glutTimerFunc(1000,timer,0);
     glutMainLoop();
@@ -39,9 +57,26 @@ int main(int argc, char *argv[])
 }
 
 void display(){
- 
-	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+     
+
+     if(startIndex == 1)
+     {
+        
+        startGame();
+     }   
+     else
+     { 
+        
+        displayMenu();
+     }   
 	
+}
+
+void startGame()
+{
+   
+	glClearColor(0.337, 0.659, 0.196,1);
+    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 
 	//Road
     glColor3f(0.412, 0.412, 0.412);
@@ -409,4 +444,41 @@ void display(){
     glFlush();
 	glutSwapBuffers();
 
+}
+
+void displayMenu()
+{
+    glClearColor(0, 0, 0,1);
+    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+
+     glColor3f(1.000, 1.000, 0.000);
+        renderBitmapString(30,80,(void *)font,"Menu eke graphics tika hadapiya methana");
+        renderBitmapString(20,50,(void *)font,"PRESS SPACE TO START");
+
+        glFlush();
+	    glutSwapBuffers();
+}
+
+void menuKeys(unsigned char key, int x, int y) {
+
+      switch (key)
+            {
+                case ' ':
+            if(startIndex==0){
+                startIndex = 1;
+                roadDivTopMost = 0;
+                roadDivTop = 0;
+                roadDivMdl = 0;
+                roadDivBtm = 0;
+                
+            }
+             break;
+
+             case 27:
+                 exit(0);
+             break;
+             default:
+                break;
+        }
+        glutPostRedisplay();
 }
