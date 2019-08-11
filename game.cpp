@@ -4,7 +4,6 @@
 #else
 #include <GL/glut.h>
 #endif
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
@@ -60,8 +59,7 @@ void menuKeys(unsigned char key, int x, int y);
 void timer(int);
 void spe_key(int key, int x, int y);
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]){
 	glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
     glutInitWindowSize(500,650);
@@ -84,18 +82,96 @@ int main(int argc, char *argv[])
 
 void display(){
      
-
-     if(startIndex == 1)
-     {
-        
+    if(startIndex == 1){
         startGame();
-     }   
-     else
-     { 
-        
+    }   
+    else{ 
         displayMenu();
-     }   
-	
+    }   	
+}
+
+void menuKeys(unsigned char key, int x, int y) {
+    switch (key){
+        case ' ':
+            if(startIndex==0){
+                startIndex = 1;
+                roadDivTopMost = 0;
+                roadDivLeft1 = 0;
+                //roadDivLeft2 = 0;
+                roadDivLeft3 = 0;
+                //roadDivLeft4 = 0;
+                roadDivLeft5 = 0;
+                roadDivRight1 = 0;
+                //roadDivRight2 = 0;
+                roadDivRight3 = 0;
+                //roadDivRight4 = 0;
+                roadDivRight5 = 0;
+            }
+            break;
+		case 27:
+            exit(0);
+            break;
+        default:
+            break;
+        }
+        glutPostRedisplay();
+}
+
+void timer(int){
+    glutPostRedisplay();
+    glutTimerFunc(1000/FPS,timer,0);
+}
+
+void spe_key(int key, int x, int y){
+        switch (key) {
+        
+        case GLUT_KEY_LEFT:
+            if(steer>0){
+               steer = steer - 2;
+            }
+            break;
+
+
+        case GLUT_KEY_RIGHT:
+            if(steer<40){
+               steer = steer + 2; 
+            }
+            break;
+
+        default:
+            break;
+        }
+}
+
+void displayMenu(){
+    glClearColor(0, 0, 0,1);
+    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+
+    glColor3f(1.000, 1.000, 0.000);
+    renderBitmapString(30,80,(void *)font,"Menu eke graphics tika hadapiya methana");
+    renderBitmapString(20,50,(void *)font,"PRESS SPACE TO START");
+    renderBitmapString(20,40,(void *)font,"PRESS LEFT TO GO LEFT");
+    renderBitmapString(20,30,(void *)font,"PRESS RIGHT TO GO RIGHT");
+
+    //Road
+    glColor3f(0.412, 0.412, 0.412);
+    glBegin(GL_POLYGON);
+    glVertex2f(50,80);
+    glVertex2f(100,0);
+    glVertex2f(0,0);
+    glEnd();
+    
+    //1st
+    glColor3f(1.000, 1.000, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(36, 0);
+    glVertex2f(40, 16);
+    glVertex2f(60, 16);
+    glVertex2f(64, 0);
+    glEnd();
+
+    glFlush();
+	glutSwapBuffers();
 }
 
 void startGame()
@@ -550,80 +626,245 @@ void startGame()
     glEnd();  
     glPopMatrix();
 
+    //CAR2-----------------------------------------------------------
+    //body
+
+    glColor3f(0, 1, 1);
+	glBegin(GL_POLYGON);                      
+	glVertex3f(24.0f, 87.0f, 0.0f);
+	glVertex3f(25.0f, 86.0f, 0.0f);
+	glVertex3f(35.0f, 86.0f, 0.0f);              
+    glVertex3f(36.0f, 87.0f, 0.0f); 
+    glVertex3f(36.0f, 99.0f, 0.0f);
+    glVertex3f(35.0f, 100.0f, 0.0f);
+     glVertex3f(25.0f, 100.0f, 0.0f);
+    glVertex3f( 24.0f,99.0f, 0.0f);                       
+    glEnd();      
+    //tireLEFTUP
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(23.0f, 89.0f, 0.0f);              
+    glVertex3f( 24.0f, 89.0f, 0.0f);             
+    glVertex3f( 24.0f, 92.0f, 0.0f);              
+    glVertex3f(23.0f, 92.0f, 0.0f);             
+    glEnd();  
+    //tireLEFTDOWN
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(23.0f, 95.0f, 0.0f);              
+    glVertex3f( 24.0f, 95.0f, 0.0f);             
+    glVertex3f( 24.0f, 98.0f, 0.0f);              
+    glVertex3f(23.0f, 98.0f, 0.0f);             
+    glEnd();  
+    //tireRIGHTUP
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(36.0f, 89.0f, 0.0f);              
+    glVertex3f( 37.0f, 89.0f, 0.0f);             
+    glVertex3f( 37.0f, 92.0f, 0.0f);              
+    glVertex3f(36.0f, 92.0f, 0.0f);             
+    glEnd();  
+    //tireRIGHTDOWN
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(36.0f, 95.0f, 0.0f);              
+    glVertex3f( 37.0f, 95.0f, 0.0f);             
+    glVertex3f( 37.0f, 98.0f, 0.0f);              
+    glVertex3f(36.0f, 98.0f, 0.0f);             
+    glEnd();  
+    //frontWINDOW
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(26.0f, 91.0f, 0.0f);              
+    glVertex3f( 34.0f, 91.0f, 0.0f);             
+    glVertex3f( 32.0f, 92.5f, 0.0f);              
+    glVertex3f(28.0f, 92.5f, 0.0f);             
+    glEnd();  
+    //backWINDOW
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(26.0f, 97.0f, 0.0f);              
+    glVertex3f( 34.0f, 97.0f, 0.0f);             
+    glVertex3f( 32.0f, 95.5f, 0.0f);              
+    glVertex3f(28.0f, 95.5f, 0.0f);             
+    glEnd();  
+    //leftWINDOW
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(26.0f, 91.5f, 0.0f);              
+    glVertex3f( 26.0f, 96.5f, 0.0f);             
+    glVertex3f( 28.0f, 95.0f, 0.0f);              
+    glVertex3f(28.0f, 93.0f, 0.0f);             
+    glEnd();  
+    //rightWINDOW
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(34.0f, 91.5f, 0.0f);              
+    glVertex3f( 34.0f, 96.5f, 0.0f);             
+    glVertex3f( 32.0f, 95.0f, 0.0f);              
+    glVertex3f(32.0f, 93.0f, 0.0f);             
+    glEnd();  
+
+    //CAR3-----------------------------------------------------------
+    //body
+
+    glColor3f(0, 1, 1);
+	glBegin(GL_POLYGON);                      
+	glVertex3f(44.0f, 87.0f, 0.0f);
+	glVertex3f(45.0f, 86.0f, 0.0f);
+	glVertex3f(55.0f, 86.0f, 0.0f);              
+    glVertex3f(56.0f, 87.0f, 0.0f); 
+    glVertex3f(56.0f, 99.0f, 0.0f);
+    glVertex3f(55.0f, 100.0f, 0.0f);
+     glVertex3f(45.0f, 100.0f, 0.0f);
+    glVertex3f( 44.0f,99.0f, 0.0f);                       
+    glEnd();      
+    //tireLEFTUP
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(43.0f, 89.0f, 0.0f);              
+    glVertex3f( 44.0f, 89.0f, 0.0f);             
+    glVertex3f( 44.0f, 92.0f, 0.0f);              
+    glVertex3f(43.0f, 92.0f, 0.0f);             
+    glEnd();  
+    //tireLEFTDOWN
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(43.0f, 95.0f, 0.0f);              
+    glVertex3f( 44.0f, 95.0f, 0.0f);             
+    glVertex3f( 44.0f, 98.0f, 0.0f);              
+    glVertex3f(43.0f, 98.0f, 0.0f);             
+    glEnd();  
+    //tireRIGHTUP
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(56.0f, 89.0f, 0.0f);              
+    glVertex3f( 57.0f, 89.0f, 0.0f);             
+    glVertex3f( 57.0f, 92.0f, 0.0f);              
+    glVertex3f(56.0f, 92.0f, 0.0f);             
+    glEnd();  
+    //tireRIGHTDOWN
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(56.0f, 95.0f, 0.0f);              
+    glVertex3f( 57.0f, 95.0f, 0.0f);             
+    glVertex3f( 57.0f, 98.0f, 0.0f);              
+    glVertex3f(56.0f, 98.0f, 0.0f);             
+    glEnd();  
+    //frontWINDOW
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(46.0f, 91.0f, 0.0f);              
+    glVertex3f( 54.0f, 91.0f, 0.0f);             
+    glVertex3f( 52.0f, 92.5f, 0.0f);              
+    glVertex3f(48.0f, 92.5f, 0.0f);             
+    glEnd();  
+    //backWINDOW
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(46.0f, 97.0f, 0.0f);              
+    glVertex3f( 54.0f, 97.0f, 0.0f);             
+    glVertex3f( 52.0f, 95.5f, 0.0f);              
+    glVertex3f(48.0f, 95.5f, 0.0f);             
+    glEnd();  
+    //leftWINDOW
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(46.0f, 91.5f, 0.0f);              
+    glVertex3f( 46.0f, 96.5f, 0.0f);             
+    glVertex3f( 48.0f, 95.0f, 0.0f);              
+    glVertex3f(48.0f, 93.0f, 0.0f);             
+    glEnd();  
+    //rightWINDOW
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(54.0f, 91.5f, 0.0f);              
+    glVertex3f( 54.0f, 96.5f, 0.0f);             
+    glVertex3f( 52.0f, 95.0f, 0.0f);              
+    glVertex3f(52.0f, 93.0f, 0.0f);             
+    glEnd();  
+
+    //CAR4-----------------------------------------------------------
+    //body
+
+    glColor3f(0, 1, 1);
+	glBegin(GL_POLYGON);                      
+	glVertex3f(64.0f, 87.0f, 0.0f);
+	glVertex3f(65.0f, 86.0f, 0.0f);
+	glVertex3f(75.0f, 86.0f, 0.0f);              
+    glVertex3f(76.0f, 87.0f, 0.0f); 
+    glVertex3f(76.0f, 99.0f, 0.0f);
+    glVertex3f(75.0f, 100.0f, 0.0f);
+     glVertex3f(65.0f, 100.0f, 0.0f);
+    glVertex3f( 64.0f,99.0f, 0.0f);                       
+    glEnd();      
+    //tireLEFTUP
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(63.0f, 89.0f, 0.0f);              
+    glVertex3f( 64.0f, 89.0f, 0.0f);             
+    glVertex3f( 64.0f, 92.0f, 0.0f);              
+    glVertex3f(63.0f, 92.0f, 0.0f);             
+    glEnd(); 
+    //tireLEFTDOWN
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(63.0f, 95.0f, 0.0f);              
+    glVertex3f( 64.0f, 95.0f, 0.0f);             
+    glVertex3f( 64.0f, 98.0f, 0.0f);              
+    glVertex3f(63.0f, 98.0f, 0.0f);             
+    glEnd();  
+    //tireRIGHTUP
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(76.0f, 89.0f, 0.0f);              
+    glVertex3f( 77.0f, 89.0f, 0.0f);             
+    glVertex3f( 77.0f, 92.0f, 0.0f);              
+    glVertex3f(76.0f, 92.0f, 0.0f);             
+    glEnd();  
+    //tireRIGHTDOWN
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(76.0f, 95.0f, 0.0f);              
+    glVertex3f( 77.0f, 95.0f, 0.0f);             
+    glVertex3f( 77.0f, 98.0f, 0.0f);              
+    glVertex3f(76.0f, 98.0f, 0.0f);             
+    glEnd();  
+    //frontWINDOW
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(66.0f, 91.0f, 0.0f);              
+    glVertex3f( 74.0f, 91.0f, 0.0f);             
+    glVertex3f( 72.0f, 92.5f, 0.0f);              
+    glVertex3f(68.0f, 92.5f, 0.0f);             
+    glEnd();  
+    //backWINDOW
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(66.0f, 97.0f, 0.0f);              
+    glVertex3f( 74.0f, 97.0f, 0.0f);             
+    glVertex3f( 72.0f, 95.5f, 0.0f);              
+    glVertex3f(68.0f, 95.5f, 0.0f);             
+    glEnd();  
+    //leftWINDOW
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(66.0f, 91.5f, 0.0f);              
+    glVertex3f( 66.0f, 96.5f, 0.0f);             
+    glVertex3f( 68.0f, 95.0f, 0.0f);              
+    glVertex3f(68.0f, 93.0f, 0.0f);             
+    glEnd();  
+    //rightWINDOW
+    glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);                      
+	glVertex3f(74.0f, 91.5f, 0.0f);              
+    glVertex3f( 74.0f, 96.5f, 0.0f);             
+    glVertex3f( 72.0f, 95.0f, 0.0f);              
+    glVertex3f(72.0f, 93.0f, 0.0f);             
+    glEnd();  
+
     glFlush();
 	glutSwapBuffers();
 
 }
 
-void displayMenu()
-{
-    glClearColor(0, 0, 0,1);
-    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-
-     glColor3f(1.000, 1.000, 0.000);
-        renderBitmapString(30,80,(void *)font,"Menu eke graphics tika hadapiya methana");
-        renderBitmapString(20,50,(void *)font,"PRESS SPACE TO START");
-        renderBitmapString(20,40,(void *)font,"PRESS LEFT TO GO LEFT");
-        renderBitmapString(20,30,(void *)font,"PRESS RIGHT TO GO RIGHT");
-
-        glFlush();
-	    glutSwapBuffers();
-}
-
-void menuKeys(unsigned char key, int x, int y) {
-
-      switch (key)
-            {
-                case ' ':
-            if(startIndex==0){
-                startIndex = 1;
-                roadDivTopMost = 0;
-                roadDivLeft1 = 0;
-                //roadDivLeft2 = 0;
-                roadDivLeft3 = 0;
-                //roadDivLeft4 = 0;
-                roadDivLeft5 = 0;
-
-                roadDivRight1 = 0;
-               //roadDivRight2 = 0;
-                roadDivRight3 = 0;
-                //roadDivRight4 = 0;
-                roadDivRight5 = 0;
-            }
-             break;
-
-             case 27:
-                 exit(0);
-             break;
-             default:
-                break;
-        }
-        glutPostRedisplay();
-}
-
-void timer(int){
-    glutPostRedisplay();
-    glutTimerFunc(1000/FPS,timer,0);
-}
-
-void spe_key(int key, int x, int y){
-        switch (key) {
-        
-        case GLUT_KEY_LEFT:
-            if(steer>0){
-               steer = steer - 2;
-            }
-            break;
-
-
-        case GLUT_KEY_RIGHT:
-            if(steer<40){
-               steer = steer + 2; 
-            }
-            break;
-
-        default:
-            break;
-        }
-
-}
