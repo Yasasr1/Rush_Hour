@@ -10,47 +10,37 @@
 #include <string>
 
 int FPS = 60;
-
 //to move the road
 int roadDivTopMost = 0;
-
 int roadDivLeft1 = 0;
 //int roadDivLeft2 = 0;
 int roadDivLeft3 = 0;
 //int roadDivLeft4 = 0;
 int roadDivLeft5 = 0;
-
 int roadDivRight1 = 0;
 //int roadDivRight2 = 0;
 int roadDivRight3 = 0;
 //int roadDivRight4 = 0;
 int roadDivRight5 = 0;
-
 //to move buildings
 int l1 = 0;
 int l2 = 0;
 int l3 = 0;
-
 int r1 = 0;
 int r2 = 0;
-
 //to steer the car
 int steer = 0;
-
-
 //track game status 
 int startIndex = 0;
-
 const int font=(int)GLUT_BITMAP_9_BY_15;
 
 void renderBitmapString(float x, float y, void *font,const char *string){
     const char *c;
     glRasterPos2f(x, y);
-    for (c=string; *c != '\0'; c++) {
+    for (c=string; *c != '\0'; c++){
         glutBitmapCharacter(font, *c);
     }
 }
-
 
 void display();
 void startGame();
@@ -65,23 +55,16 @@ int main(int argc, char *argv[]){
     glutInitWindowSize(500,650);
     glutInitWindowPosition(200,20);
     glutCreateWindow("Car Game");
-
     glutDisplayFunc(display);
     glutSpecialFunc(spe_key);
     glutKeyboardFunc(menuKeys );
-    
-
     gluOrtho2D(0,100,0,100);
-
-
     glutTimerFunc(1000,timer,0);
     glutMainLoop();
-
     return 0;
 }
 
 void display(){
-     
     if(startIndex == 1){
         startGame();
     }   
@@ -123,30 +106,25 @@ void timer(int){
 }
 
 void spe_key(int key, int x, int y){
-        switch (key) {
-        
-        case GLUT_KEY_LEFT:
-            if(steer>0){
-               steer = steer - 2;
-            }
-            break;
-
-
-        case GLUT_KEY_RIGHT:
-            if(steer<40){
-               steer = steer + 2; 
-            }
-            break;
-
-        default:
-            break;
+        switch (key){
+	        case GLUT_KEY_LEFT:
+	            if(steer>0){
+	               steer = steer - 2;
+	            }
+	            break;
+	        case GLUT_KEY_RIGHT:
+	            if(steer<40){
+	               steer = steer + 2; 
+	            }
+	            break;
+	        default:
+	            break;
         }
 }
 
 void displayMenu(){
     glClearColor(0, 0, 0,1);
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-
     glColor3f(1.000, 1.000, 0.000);
     renderBitmapString(30,80,(void *)font,"Menu eke graphics tika hadapiya methana");
     renderBitmapString(20,50,(void *)font,"PRESS SPACE TO START");
@@ -174,9 +152,7 @@ void displayMenu(){
 	glutSwapBuffers();
 }
 
-void startGame()
-{
-   
+void startGame(){
 	glClearColor(0.337, 0.659, 0.196,1);
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 
@@ -245,7 +221,7 @@ void startGame()
     glVertex2f(41,roadDivLeft3+41);
     glEnd();
 
-     roadDivLeft3--;
+    roadDivLeft3--;
     if(roadDivLeft3<-61){
         roadDivLeft3 =60;
     }
@@ -265,7 +241,7 @@ void startGame()
     }*/
 
     //5th
-     glColor3f(1.000, 1.000, 0.000);
+    glColor3f(1.000, 1.000, 0.000);
     glBegin(GL_POLYGON);
     glVertex2f(39,roadDivLeft5+1);
     glVertex2f(39,roadDivLeft5+19);
@@ -273,7 +249,7 @@ void startGame()
     glVertex2f(41,roadDivLeft5+1);
     glEnd();
 
-     roadDivLeft5--;
+    roadDivLeft5--;
     if(roadDivLeft5<-21){
         roadDivLeft5 =100;
     }
@@ -338,7 +314,6 @@ void startGame()
         roadDivRight5 =100;
     }
 
-
 //Buildings--------------------------------------------------
     l1--;
     if(l1<-20)
@@ -356,7 +331,6 @@ void startGame()
     glVertex3f( 1.0f,1.0f, 0.0f);              
     glVertex3f(1.0f,15.0f, 0.0f);   
     glEnd();
-
      
     //r
 	glColor3f(0.7, 0, 0);
@@ -626,9 +600,8 @@ void startGame()
     glEnd();  
     glPopMatrix();
 
-    //CAR2-----------------------------------------------------------
+//CAR2-----------------------------------------------------------
     //body
-
     glColor3f(0, 1, 1);
 	glBegin(GL_POLYGON);                      
 	glVertex3f(24.0f, 87.0f, 0.0f);
@@ -705,9 +678,8 @@ void startGame()
     glVertex3f(32.0f, 93.0f, 0.0f);             
     glEnd();  
 
-    //CAR3-----------------------------------------------------------
+//CAR3-----------------------------------------------------------
     //body
-
     glColor3f(0, 1, 1);
 	glBegin(GL_POLYGON);                      
 	glVertex3f(44.0f, 87.0f, 0.0f);
@@ -784,9 +756,8 @@ void startGame()
     glVertex3f(52.0f, 93.0f, 0.0f);             
     glEnd();  
 
-    //CAR4-----------------------------------------------------------
+//CAR4-----------------------------------------------------------
     //body
-
     glColor3f(0, 1, 1);
 	glBegin(GL_POLYGON);                      
 	glVertex3f(64.0f, 87.0f, 0.0f);
