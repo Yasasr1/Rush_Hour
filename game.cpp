@@ -125,11 +125,6 @@ void spe_key(int key, int x, int y){
 void displayMenu(){
     glClearColor(0, 0, 0,1);
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-    glColor3f(1.000, 1.000, 0.000);
-    renderBitmapString(30,80,(void *)font,"Menu eke graphics tika hadapiya methana");
-    renderBitmapString(20,50,(void *)font,"PRESS SPACE TO START");
-    renderBitmapString(20,40,(void *)font,"PRESS LEFT TO GO LEFT");
-    renderBitmapString(20,30,(void *)font,"PRESS RIGHT TO GO RIGHT");
 
     //Road
     glColor3f(0.412, 0.412, 0.412);
@@ -142,11 +137,43 @@ void displayMenu(){
     //1st
     glColor3f(1.000, 1.000, 0.000);
     glBegin(GL_POLYGON);
-    glVertex2f(36, 0);
-    glVertex2f(40, 16);
-    glVertex2f(60, 16);
-    glVertex2f(64, 0);
+    glVertex2f(37, 8);
+    glVertex2f(43, 40);
+    glVertex2f(57, 40);
+    glVertex2f(63, 8);
     glEnd();
+    //2nd
+    glColor3f(1.000, 1.000, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(45, 46);
+    glVertex2f(46, 60);
+    glVertex2f(54, 60);
+    glVertex2f(55, 46);
+    glEnd();
+    //3rd
+    glColor3f(1.000, 1.000, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(47, 64);
+    glVertex2f(49, 72);
+    glVertex2f(51, 72);
+    glVertex2f(53, 64);
+    glEnd();
+    //4th
+    glColor3f(1.000, 1.000, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(49.5, 74);
+    glVertex2f(50, 80);
+    glVertex2f(50, 80);
+    glVertex2f(50.5, 74);
+    glEnd();
+
+    glColor3f(1.000, 0.000, 0.000);
+    renderBitmapString(30,80,(void *)font,"RUSH HOUR");
+    renderBitmapString(20,50,(void *)font,"PRESS SPACE TO START");
+    renderBitmapString(20,40,(void *)font,"PRESS LEFT TO GO LEFT");
+    renderBitmapString(20,30,(void *)font,"PRESS RIGHT TO GO RIGHT");
+
+    
 
     glFlush();
 	glutSwapBuffers();
