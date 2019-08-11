@@ -10,11 +10,31 @@
 #include <iostream>
 #include <string>
 
+int FPS = 60;
+
 //to move the road
 int roadDivTopMost = 0;
-int roadDivTop = 0;
-int roadDivMdl = 0;
-int roadDivBtm = 0;
+
+int roadDivLeft1 = 0;
+//int roadDivLeft2 = 0;
+int roadDivLeft3 = 0;
+//int roadDivLeft4 = 0;
+int roadDivLeft5 = 0;
+
+int roadDivRight1 = 0;
+//int roadDivRight2 = 0;
+int roadDivRight3 = 0;
+//int roadDivRight4 = 0;
+int roadDivRight5 = 0;
+
+//to move buildings
+int l1 = 0;
+int l2 = 0;
+int l3 = 0;
+
+int r1 = 0;
+int r2 = 0;
+
 
 //track game status 
 int startIndex = 0;
@@ -34,6 +54,7 @@ void display();
 void startGame();
 void displayMenu();
 void menuKeys(unsigned char key, int x, int y);
+void timer(int);
 
 int main(int argc, char *argv[])
 {
@@ -46,11 +67,12 @@ int main(int argc, char *argv[])
     glutDisplayFunc(display);
    // glutSpecialFunc(spe_key);
     glutKeyboardFunc(menuKeys );
+    
 
     gluOrtho2D(0,100,0,100);
 
 
-   // glutTimerFunc(1000,timer,0);
+    glutTimerFunc(1000,timer,0);
     glutMainLoop();
 
     return 0;
@@ -105,100 +127,145 @@ void startGame()
     glVertex2f(80,0);
     glEnd();
 
-    //Road Middel LEFT Border
-    //TOP
+    //Road middle left lines
+    //1st
     glColor3f(1.000, 1.000, 0.000);
     glBegin(GL_POLYGON);
-    glVertex2f(39,roadDivTop+81);
-    glVertex2f(39,roadDivTop+99);
-    glVertex2f(41,roadDivTop+99);
-    glVertex2f(41,roadDivTop+81);
+    glVertex2f(39,roadDivLeft1+81);
+    glVertex2f(39,roadDivLeft1+99);
+    glVertex2f(41,roadDivLeft1+99);
+    glVertex2f(41,roadDivLeft1+81);
     glEnd();
+
+    roadDivLeft1--;
+    if(roadDivLeft1<-101){
+        roadDivLeft1 =20;
+    }
     
-    //MidleUP
-    glColor3f(1.000, 1.000, 0.000);
+    //2nd
+    /*glColor3f(1.000, 1.000, 0.000);
     glBegin(GL_POLYGON);
-    glVertex2f(39,roadDivMdl+61);
-    glVertex2f(39,roadDivMdl+79);
-    glVertex2f(41,roadDivMdl+79);
-    glVertex2f(41,roadDivMdl+61);
+    glVertex2f(39,roadDivLeft2+61);
+    glVertex2f(39,roadDivLeft2+79);
+    glVertex2f(41,roadDivLeft2+79);
+    glVertex2f(41,roadDivLeft2+61);
     glEnd();
 
-    //MIDDLE
+    roadDivLeft2--;
+    if(roadDivLeft2<-81){
+        roadDivLeft2 =40;
+    }*/
+
+    //3rd
     glColor3f(1.000, 1.000, 0.000);
     glBegin(GL_POLYGON);
-    glVertex2f(39,roadDivMdl+41);
-    glVertex2f(39,roadDivMdl+59);
-    glVertex2f(41,roadDivMdl+59);
-    glVertex2f(41,roadDivMdl+41);
+    glVertex2f(39,roadDivLeft3+41);
+    glVertex2f(39,roadDivLeft3+59);
+    glVertex2f(41,roadDivLeft3+59);
+    glVertex2f(41,roadDivLeft3+41);
     glEnd();
 
-    //MidleDOWN
-    glColor3f(1.000, 1.000, 0.000);
+     roadDivLeft3--;
+    if(roadDivLeft3<-61){
+        roadDivLeft3 =60;
+    }
+
+    //4th
+    /*glColor3f(1.000, 1.000, 0.000);
     glBegin(GL_POLYGON);
-    glVertex2f(39,roadDivMdl+21);
-    glVertex2f(39,roadDivMdl+39);
-    glVertex2f(41,roadDivMdl+39);
-    glVertex2f(41,roadDivMdl+21);
+    glVertex2f(39,roadDivLeft4+21);
+    glVertex2f(39,roadDivLeft4+39);
+    glVertex2f(41,roadDivLeft4+39);
+    glVertex2f(41,roadDivLeft4+21);
     glEnd();
 
-    //BOTTOM
+     roadDivLeft4--;
+    if(roadDivLeft4<-41){
+        roadDivLeft4 =80;
+    }*/
+
+    //5th
      glColor3f(1.000, 1.000, 0.000);
     glBegin(GL_POLYGON);
-    glVertex2f(39,roadDivBtm+1);
-    glVertex2f(39,roadDivBtm+19);
-    glVertex2f(41,roadDivBtm+19);
-    glVertex2f(41,roadDivBtm+1);
+    glVertex2f(39,roadDivLeft5+1);
+    glVertex2f(39,roadDivLeft5+19);
+    glVertex2f(41,roadDivLeft5+19);
+    glVertex2f(41,roadDivLeft5+1);
     glEnd();
 
-    //Road Middel Right Border
-    //TOP
+     roadDivLeft5--;
+    if(roadDivLeft5<-21){
+        roadDivLeft5 =100;
+    }
+
+    //Road Middel Right lines
+    //1st
     glColor3f(1.000, 1.000, 0.000);
     glBegin(GL_POLYGON);
-    glVertex2f(59,roadDivTop+81);
-    glVertex2f(59,roadDivTop+99);
-    glVertex2f(61,roadDivTop+99);
-    glVertex2f(61,roadDivTop+81);
+    glVertex2f(59,roadDivRight1+81);
+    glVertex2f(59,roadDivRight1+99);
+    glVertex2f(61,roadDivRight1+99);
+    glVertex2f(61,roadDivRight1+81);
     glEnd();
     
-    //MidleUP
+    roadDivRight1--;
+    if(roadDivRight1<-101){
+        roadDivRight1 =20;
+    }
+    //2nd
+    /*glColor3f(1.000, 1.000, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(59,roadDivRight2+61);
+    glVertex2f(59,roadDivRight2+79);
+    glVertex2f(61,roadDivRight2+79);
+    glVertex2f(61,roadDivRight2+61);
+    glEnd();*/
+
+    //3rd
     glColor3f(1.000, 1.000, 0.000);
     glBegin(GL_POLYGON);
-    glVertex2f(59,roadDivMdl+61);
-    glVertex2f(59,roadDivMdl+79);
-    glVertex2f(61,roadDivMdl+79);
-    glVertex2f(61,roadDivMdl+61);
+    glVertex2f(59,roadDivRight3+41);
+    glVertex2f(59,roadDivRight3+59);
+    glVertex2f(61,roadDivRight3+59);
+    glVertex2f(61,roadDivRight3+41);
     glEnd();
 
-    //MIDDLE
-    glColor3f(1.000, 1.000, 0.000);
+    roadDivRight3--;
+    if(roadDivRight3<-61){
+        roadDivRight3 =60;
+    }
+
+    //4th
+    /*glColor3f(1.000, 1.000, 0.000);
     glBegin(GL_POLYGON);
-    glVertex2f(59,roadDivMdl+41);
-    glVertex2f(59,roadDivMdl+59);
-    glVertex2f(61,roadDivMdl+59);
-    glVertex2f(61,roadDivMdl+41);
-    glEnd();
+    glVertex2f(59,roadDivRight4+21);
+    glVertex2f(59,roadDivRight4+39);
+    glVertex2f(61,roadDivRight4+39);
+    glVertex2f(61,roadDivRight4+21);
+    glEnd();*/
 
-    //MidleDOWN
-    glColor3f(1.000, 1.000, 0.000);
-    glBegin(GL_POLYGON);
-    glVertex2f(59,roadDivMdl+21);
-    glVertex2f(59,roadDivMdl+39);
-    glVertex2f(61,roadDivMdl+39);
-    glVertex2f(61,roadDivMdl+21);
-    glEnd();
-
-    //BOTTOM
+    //5th
      glColor3f(1.000, 1.000, 0.000);
     glBegin(GL_POLYGON);
-    glVertex2f(59,roadDivBtm+1);
-    glVertex2f(59,roadDivBtm+19);
-    glVertex2f(61,roadDivBtm+19);
-    glVertex2f(61,roadDivBtm+1);
+    glVertex2f(59,roadDivRight5+1);
+    glVertex2f(59,roadDivRight5+19);
+    glVertex2f(61,roadDivRight5+19);
+    glVertex2f(61,roadDivRight5+1);
     glEnd();
+
+    roadDivRight5--;
+    if(roadDivRight5<-21){
+        roadDivRight5 =100;
+    }
 
 
 //Buildings--------------------------------------------------
+    l1--;
+    if(l1<-20)
+        l1 = 100;
+
+    glPushMatrix();
+    glTranslatef(0,l1,0);
 
 	//Building L1
     //l
@@ -207,8 +274,10 @@ void startGame()
 	glVertex3f(7.5f, 12.0f, 0.0f);              
     glVertex3f( 7.5f, 4.0f, 0.0f);             
     glVertex3f( 1.0f,1.0f, 0.0f);              
-    glVertex3f(1.0f,15.0f, 0.0f);             
-    glEnd();  
+    glVertex3f(1.0f,15.0f, 0.0f);   
+    glEnd();
+
+     
     //r
 	glColor3f(0.7, 0, 0);
 	glBegin(GL_QUADS);                      
@@ -231,8 +300,16 @@ void startGame()
     glVertex3f( 15.0f, 1.0f, 0.0f);             
     glVertex3f( 7.5f,4.0f, 0.0f);                         
     glEnd();   
+    glPopMatrix(); 
 //------------------------------------------------------
 	//Building L2
+
+    l2--;
+    if(l2<-50)
+        l2 = 100;
+
+    glPushMatrix();
+    glTranslatef(0,l2,0);
     //l
 	glColor3f(1, 0, 0);
 	glBegin(GL_QUADS);                      
@@ -262,9 +339,18 @@ void startGame()
 	glVertex3f(1.0f, 41.0f, 0.0f);              
     glVertex3f( 15.0f, 41.0f, 0.0f);             
     glVertex3f( 7.5f,44.0f, 0.0f);                         
-    glEnd();      
+    glEnd();
+    glPopMatrix(); 
+      
 //------------------------------------------------------------
  //Building L3
+
+    l3--;
+    if(l3<-95)
+        l3 = 100;
+
+    glPushMatrix();
+    glTranslatef(0,l3,0);
     //l
 	glColor3f(1, 0, 0);
 	glBegin(GL_QUADS);                      
@@ -294,9 +380,16 @@ void startGame()
 	glVertex3f(1.0f, 81.0f, 0.0f);              
     glVertex3f( 15.0f, 81.0f, 0.0f);             
     glVertex3f( 7.5f,84.0f, 0.0f);                         
-    glEnd();             
+    glEnd();
+    glPopMatrix();             
 //-------------------------------------------------------------------
     //Building R1
+    r1--;
+    if(r1<-35)
+        r1 = 100;
+
+    glPushMatrix();
+    glTranslatef(0,r1,0);
     //l
 	glColor3f(1, 0, 0);
 	glBegin(GL_QUADS);                      
@@ -326,10 +419,17 @@ void startGame()
 	glVertex3f(84.0f, 21.0f, 0.0f);              
     glVertex3f( 99.0f, 21.0f, 0.0f);             
     glVertex3f( 91.5f,24.0f, 0.0f);                         
-    glEnd();             
+    glEnd();   
+    glPopMatrix();          
 	
 //-----------------------------------------------------------------------
 //Building R2
+    r2--;
+    if(r2<-70)
+        r2 = 100;
+
+    glPushMatrix();
+    glTranslatef(0,r2,0);
     //l
 	glColor3f(1, 0, 0);
 	glBegin(GL_QUADS);                      
@@ -359,7 +459,8 @@ void startGame()
 	glVertex3f(84.0f, 61.0f, 0.0f);              
     glVertex3f( 99.0f, 61.0f, 0.0f);             
     glVertex3f( 91.5f,64.0f, 0.0f);                         
-    glEnd();             
+    glEnd();     
+    glPopMatrix();        
 	
 	//Building Ends---------------------------------------------
 
@@ -467,10 +568,17 @@ void menuKeys(unsigned char key, int x, int y) {
             if(startIndex==0){
                 startIndex = 1;
                 roadDivTopMost = 0;
-                roadDivTop = 0;
-                roadDivMdl = 0;
-                roadDivBtm = 0;
-                
+                roadDivLeft1 = 0;
+                //roadDivLeft2 = 0;
+                roadDivLeft3 = 0;
+                //roadDivLeft4 = 0;
+                roadDivLeft5 = 0;
+
+                roadDivRight1 = 0;
+               //roadDivRight2 = 0;
+                roadDivRight3 = 0;
+                //roadDivRight4 = 0;
+                roadDivRight5 = 0;
             }
              break;
 
@@ -481,4 +589,9 @@ void menuKeys(unsigned char key, int x, int y) {
                 break;
         }
         glutPostRedisplay();
+}
+
+void timer(int){
+    glutPostRedisplay();
+    glutTimerFunc(1000/FPS,timer,0);
 }
