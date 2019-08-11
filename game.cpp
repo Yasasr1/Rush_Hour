@@ -563,6 +563,8 @@ void displayMenu()
      glColor3f(1.000, 1.000, 0.000);
         renderBitmapString(30,80,(void *)font,"Menu eke graphics tika hadapiya methana");
         renderBitmapString(20,50,(void *)font,"PRESS SPACE TO START");
+        renderBitmapString(20,40,(void *)font,"PRESS LEFT TO GO LEFT");
+        renderBitmapString(20,30,(void *)font,"PRESS RIGHT TO GO RIGHT");
 
         glFlush();
 	    glutSwapBuffers();
