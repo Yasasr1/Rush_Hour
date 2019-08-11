@@ -35,6 +35,9 @@ int l3 = 0;
 int r1 = 0;
 int r2 = 0;
 
+//to steer the car
+int steer = 0;
+
 
 //track game status 
 int startIndex = 0;
@@ -55,6 +58,7 @@ void startGame();
 void displayMenu();
 void menuKeys(unsigned char key, int x, int y);
 void timer(int);
+void spe_key(int key, int x, int y);
 
 int main(int argc, char *argv[])
 {
@@ -65,7 +69,7 @@ int main(int argc, char *argv[])
     glutCreateWindow("Car Game");
 
     glutDisplayFunc(display);
-   // glutSpecialFunc(spe_key);
+    glutSpecialFunc(spe_key);
     glutKeyboardFunc(menuKeys );
     
 
@@ -466,6 +470,9 @@ void startGame()
 
 //CAR-----------------------------------------------------------
     //body
+    glPushMatrix();
+    glTranslatef(steer,0,0);
+
     glColor3f(0, 1, 1);
 	glBegin(GL_POLYGON);                      
 	glVertex3f(24.0f, 14.0f, 0.0f);
@@ -541,6 +548,7 @@ void startGame()
     glVertex3f( 32.0f, 6.0f, 0.0f);              
     glVertex3f(32.0f, 8.0f, 0.0f);             
     glEnd();  
+    glPopMatrix();
 
     glFlush();
 	glutSwapBuffers();
@@ -594,4 +602,26 @@ void menuKeys(unsigned char key, int x, int y) {
 void timer(int){
     glutPostRedisplay();
     glutTimerFunc(1000/FPS,timer,0);
+}
+
+void spe_key(int key, int x, int y){
+        switch (key) {
+        
+        case GLUT_KEY_LEFT:
+            if(steer>0){
+               steer = steer - 2;
+            }
+            break;
+
+
+        case GLUT_KEY_RIGHT:
+            if(steer<40){
+               steer = steer + 2; 
+            }
+            break;
+
+        default:
+            break;
+        }
+
 }
