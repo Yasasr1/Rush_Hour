@@ -28,6 +28,9 @@ int l2 = 0;
 int l3 = 0;
 int r1 = 0;
 int r2 = 0;
+
+//to move the tree
+int t = 0;
 //to steer the car
 int steer = 0;
 //track game status 
@@ -545,8 +548,13 @@ void startGame(){
 	
 	//Building Ends---------------------------------------------
 // Tree------------------------------------------------------------------
+    t--;
+    if(t<-20)
+        t = 100;
 
-
+    glPushMatrix();
+    glTranslatef(0,t,0);
+    
 	glColor3f(0, 0.5,0);
     	glBegin(GL_QUADS);                      
 	glVertex3f(84.0f, 13.0f, 0.0f);              
@@ -580,6 +588,7 @@ void startGame(){
     	glVertex3f(87.0f,6.0f, 0.0f);             
     	glEnd(); 	
 
+    glPopMatrix();
 
 
 
