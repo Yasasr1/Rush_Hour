@@ -33,6 +33,8 @@ int r2 = 0;
 int t = 0;
 //to steer the car
 int steer = 0;
+//move oppsite car
+float oc1 = 0;
 //track game status 
 int startIndex = 0;
 const int font=(int)GLUT_BITMAP_9_BY_15;
@@ -679,6 +681,11 @@ void startGame(){
 
 //CAR2-----------------------------------------------------------
     //body
+    oc1 = oc1 - 0.5;
+    if(oc1<-100)
+        oc1 = 10;
+    glPushMatrix();
+    glTranslatef(0,oc1,0);
     glColor3f(0, 1, 1);
 	glBegin(GL_POLYGON);                      
 	glVertex3f(24.0f, 99.0f, 0.0f);
@@ -753,7 +760,14 @@ void startGame(){
     glVertex3f( 34.0f, 89.5f, 0.0f);             
     glVertex3f( 32.0f, 91.0f, 0.0f);              
     glVertex3f(32.0f, 93.0f, 0.0f);             
-    glEnd();  
+    glEnd(); 
+    glPopMatrix(); 
+
+    if(25+steer < 38 && oc1 < -70)
+    {
+        startIndex = 0;
+        oc1 = 10;
+    }    
 
 //CAR3-----------------------------------------------------------
     //body
