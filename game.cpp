@@ -549,23 +549,23 @@ void startGame(){
 
 	glColor3f(0, 0.5,0);
     	glBegin(GL_QUADS);                      
-	glVertex3f(82.0f, 12.0f, 0.0f);              
-    	glVertex3f( 84.0f, 12.0f, 0.0f);             
-    	glVertex3f( 84.0f,10.0f, 0.0f);              
-    	glVertex3f(82.0f,10.0f, 0.0f);             
+	glVertex3f(84.0f, 13.0f, 0.0f);              
+    	glVertex3f( 94.0f, 13.0f, 0.0f);             
+    	glVertex3f( 94.0f,3.0f, 0.0f);              
+    	glVertex3f(84.0f,3.0f, 0.0f);             
     	glEnd(); 
 
 
 	glColor3f(0, 1, 0);
     	glBegin(GL_POLYGON);
-   	glVertex2f(83.0f,12.5f);
-    	glVertex2f(83.5f, 11.5f);
-    	glVertex2f(84.5f,11.0f);
-    	glVertex2f(83.5f,10.5f);
-	glVertex2f(83.0f,9.5f);
-	glVertex2f(82.5f,10.5f);
-	glVertex2f(81.5f,11.0f);
-	glVertex2f(82.5f, 11.5f);
+   	glVertex2f(89.0f,16.0f);
+    	glVertex2f(91.0f, 10.0f);
+    	glVertex2f(97.0f,8.0f);
+    	glVertex2f(91.0f,6.0f);
+	glVertex2f(89.0f,0.0f);
+	glVertex2f(87.0f,6.0f);
+	glVertex2f(81.0f,8.0f);
+	glVertex2f(87.0f, 10.0f);
     	glEnd();
 
 
@@ -574,10 +574,10 @@ void startGame(){
 
 	glColor3f(1, 0.5,1);
     	glBegin(GL_QUADS);                      
-	glVertex3f(82.5f, 11.5f, 0.0f);              
-    	glVertex3f( 83.5f, 11.5f, 0.0f);             
-    	glVertex3f( 83.5f,10.5f, 0.0f);              
-    	glVertex3f(82.5f,10.5f, 0.0f);             
+	glVertex3f(87.0f, 10.0f, 0.0f);              
+    	glVertex3f( 91.0f, 10.0f, 0.0f);             
+    	glVertex3f( 91.0f,6.0f, 0.0f);              
+    	glVertex3f(87.0f,6.0f, 0.0f);             
     	glEnd(); 	
 
 
