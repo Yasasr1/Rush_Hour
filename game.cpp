@@ -206,6 +206,7 @@ void displayMenu(){
     renderBitmapString(20,50,(void *)font,"PRESS SPACE TO START");
     renderBitmapString(20,40,(void *)font,"PRESS LEFT TO GO LEFT");
     renderBitmapString(20,30,(void *)font,"PRESS RIGHT TO GO RIGHT");
+    renderBitmapString(20,20,(void *)font,"PRESS UP TO BOOST");
 
     
 
