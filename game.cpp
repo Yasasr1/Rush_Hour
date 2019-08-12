@@ -1,4 +1,4 @@
-#include<windows.h>
+ #include<windows.h>
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
@@ -35,6 +35,10 @@ int t = 0;
 int steer = 0;
 //move oppsite car
 float oc1 = 0;
+//move oppsite car2
+float oc2 = 0;
+//move oppsite car3
+float oc3 = 0;
 //track game status 
 int startIndex = 0;
 const int font=(int)GLUT_BITMAP_9_BY_15;
@@ -763,14 +767,22 @@ void startGame(){
     glEnd(); 
     glPopMatrix(); 
 
-    if(25+steer < 38 && oc1 < -70)
-    {
-        startIndex = 0;
-        oc1 = 10;
-    }    
+    //collision detection CAR Vs CAR2
+    if(oc1 < -71){
+	    if(37+steer > 23 && 23+steer < 37)
+	    {
+	        startIndex = 0;
+	        oc1 = 10;
+	    } 
+	}    
 
 //CAR3-----------------------------------------------------------
     //body
+    oc2 = oc2 - 0.4;
+    if(oc2<-100)
+    	oc2=15;
+    glPushMatrix();
+    glTranslatef(0,oc2,0);
     glColor3f(0, 1, 1);
 	glBegin(GL_POLYGON);                      
 	glVertex3f(44.0f, 99.0f, 0.0f);
@@ -845,10 +857,25 @@ void startGame(){
     glVertex3f( 54.0f, 89.5f, 0.0f);             
     glVertex3f( 52.0f, 91.0f, 0.0f);              
     glVertex3f(52.0f, 93.0f, 0.0f);             
-    glEnd();  
+    glEnd();
+    glPopMatrix();  
+
+    //collision detection CAR Vs CAR3
+	if(oc2 < -71){
+	    if(37+steer > 43 && 23+steer < 57)
+	    {
+	        startIndex = 0;
+	        oc2 = 15;
+	    } 
+	}   
 
 //CAR4-----------------------------------------------------------
     //body
+    oc3 = oc3 - 0.1;
+    if(oc3<-100)
+        oc3 = 20;
+    glPushMatrix();
+    glTranslatef(0,oc3,0);
     glColor3f(0, 1, 1);
 	glBegin(GL_POLYGON);                      
 	glVertex3f(64.0f, 99.0f, 0.0f);
@@ -923,7 +950,17 @@ void startGame(){
     glVertex3f( 74.0f, 89.5f, 0.0f);             
     glVertex3f( 72.0f, 91.0f, 0.0f);              
     glVertex3f(72.0f, 93.0f, 0.0f);             
-    glEnd();  
+    glEnd(); 
+    glPopMatrix();
+
+    //collision detection CAR Vs CAR4
+    if(oc3 < -71){
+	    if(37+steer > 63 && 23+steer < 77)
+	    {
+	        startIndex = 0;
+	        oc3 = 20;
+	    } 
+	}   
 
     /*
     //CAR2(INCOMING)-----------------------------------------------------------
