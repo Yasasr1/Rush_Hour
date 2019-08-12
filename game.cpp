@@ -33,15 +33,22 @@ int r2 = 0;
 int t = 0;
 //to steer the car
 int steer = 0;
+//boost
+int boost = 0;
 //move oppsite car
-float oc1 = 0;
+float oc1 = 30;
 //move oppsite car2
 float oc2 = 0;
 //move oppsite car3
 float oc3 = 0;
 //track game status 
 int startIndex = 0;
+int gameOver = 0;
+//track score
+int score = 0;
+
 const int font=(int)GLUT_BITMAP_9_BY_15;
+const int font2=(int)GLUT_BITMAP_HELVETICA_18 ;
 
 void renderBitmapString(float x, float y, void *font,const char *string){
     const char *c;
@@ -98,6 +105,7 @@ void menuKeys(unsigned char key, int x, int y) {
                 roadDivRight3 = 0;
                 //roadDivRight4 = 0;
                 roadDivRight5 = 0;
+                gameOver = 0;
             }
             break;
 		case 27:
@@ -126,6 +134,9 @@ void spe_key(int key, int x, int y){
 	               steer = steer + 2; 
 	            }
 	            break;
+            case GLUT_KEY_UP:
+                boost = 5;
+                break;    
 	        default:
 	            break;
         }
@@ -176,8 +187,21 @@ void displayMenu(){
     glVertex2f(50.5, 74);
     glEnd();
 
+    if(gameOver == 1)
+    {
+        glColor3f(1.000, 0.000, 0.000);
+        renderBitmapString(20,90,(void *)font2,"Game Over");
+
+        char buffer [50];
+        sprintf (buffer, "SCORE: %d", score);
+        glColor3f(0.000, 1.000, 1.000);
+        renderBitmapString(20,80,(void *)font,buffer);
+
+
+    }
+
     glColor3f(1.000, 0.000, 0.000);
-    renderBitmapString(30,80,(void *)font,"RUSH HOUR");
+    renderBitmapString(30,70,(void *)font,"RUSH HOUR");
     renderBitmapString(20,50,(void *)font,"PRESS SPACE TO START");
     renderBitmapString(20,40,(void *)font,"PRESS LEFT TO GO LEFT");
     renderBitmapString(20,30,(void *)font,"PRESS RIGHT TO GO RIGHT");
@@ -229,7 +253,7 @@ void startGame(){
     glVertex2f(41,roadDivLeft1+81);
     glEnd();
 
-    roadDivLeft1--;
+    roadDivLeft1 = roadDivLeft1 - 1 - boost;
     if(roadDivLeft1<-101){
         roadDivLeft1 =20;
     }
@@ -257,7 +281,7 @@ void startGame(){
     glVertex2f(41,roadDivLeft3+41);
     glEnd();
 
-    roadDivLeft3--;
+    roadDivLeft3 = roadDivLeft3 - 1 - boost;
     if(roadDivLeft3<-61){
         roadDivLeft3 =60;
     }
@@ -285,7 +309,7 @@ void startGame(){
     glVertex2f(41,roadDivLeft5+1);
     glEnd();
 
-    roadDivLeft5--;
+    roadDivLeft5 = roadDivLeft5 - 1 - boost;
     if(roadDivLeft5<-21){
         roadDivLeft5 =100;
     }
@@ -300,7 +324,7 @@ void startGame(){
     glVertex2f(61,roadDivRight1+81);
     glEnd();
     
-    roadDivRight1--;
+    roadDivRight1 = roadDivRight1 - 1 - boost;
     if(roadDivRight1<-101){
         roadDivRight1 =20;
     }
@@ -322,7 +346,7 @@ void startGame(){
     glVertex2f(61,roadDivRight3+41);
     glEnd();
 
-    roadDivRight3--;
+    roadDivRight3 = roadDivRight3 - 1 - boost;
     if(roadDivRight3<-61){
         roadDivRight3 =60;
     }
@@ -345,13 +369,13 @@ void startGame(){
     glVertex2f(61,roadDivRight5+1);
     glEnd();
 
-    roadDivRight5--;
+    roadDivRight5 = roadDivRight5 - 1 - boost;
     if(roadDivRight5<-21){
         roadDivRight5 =100;
     }
 
 //Buildings--------------------------------------------------
-    l1--;
+    l1 = l1 - 1 - boost;
     if(l1<-20)
         l1 = 100;
 
@@ -394,7 +418,7 @@ void startGame(){
 //------------------------------------------------------
 	//Building L2
 
-    l2--;
+    l2 = l2 - 1 - boost;
     if(l2<-50)
         l2 = 100;
 
@@ -435,7 +459,7 @@ void startGame(){
 //------------------------------------------------------------
  //Building L3
 
-    l3--;
+    l3 = l3 - 1 - boost;
     if(l3<-95)
         l3 = 100;
 
@@ -474,7 +498,7 @@ void startGame(){
     glPopMatrix();             
 //-------------------------------------------------------------------
     //Building R1
-    r1--;
+    r1 = r1 - 1 - boost;
     if(r1<-35)
         r1 = 100;
 
@@ -514,7 +538,7 @@ void startGame(){
 	
 //-----------------------------------------------------------------------
 //Building R2
-    r2--;
+    r2 = r2 - 1 - boost;
     if(r2<-70)
         r2 = 100;
 
@@ -554,7 +578,7 @@ void startGame(){
 	
 	//Building Ends---------------------------------------------
 // Tree------------------------------------------------------------------
-    t--;
+     t = t - 1 - boost;
     if(t<-20)
         t = 100;
 
@@ -685,9 +709,12 @@ void startGame(){
 
 //CAR2-----------------------------------------------------------
     //body
-    oc1 = oc1 - 0.5;
+    oc1 = oc1 - 0.5 - boost;
     if(oc1<-100)
+    {
         oc1 = 10;
+        score++;
+    }    
     glPushMatrix();
     glTranslatef(0,oc1,0);
     glColor3f(0, 1, 1);
@@ -773,14 +800,19 @@ void startGame(){
 	    {
 	        startIndex = 0;
 	        oc1 = 10;
+            gameOver = 1;
 	    } 
 	}    
 
 //CAR3-----------------------------------------------------------
     //body
-    oc2 = oc2 - 0.4;
+    oc2 = oc2 - 0.4 - boost;
     if(oc2<-100)
-    	oc2=15;
+    {
+        oc2=100;
+        score++;
+    }
+    	
     glPushMatrix();
     glTranslatef(0,oc2,0);
     glColor3f(0, 1, 1);
@@ -866,14 +898,18 @@ void startGame(){
 	    {
 	        startIndex = 0;
 	        oc2 = 15;
+            gameOver = 1;
 	    } 
 	}   
 
 //CAR4-----------------------------------------------------------
     //body
-    oc3 = oc3 - 0.1;
+    oc3 = oc3 - 0.2 - boost;
     if(oc3<-100)
-        oc3 = 20;
+    {
+        oc3 = 50;
+        score++;
+    }   
     glPushMatrix();
     glTranslatef(0,oc3,0);
     glColor3f(0, 1, 1);
@@ -959,6 +995,7 @@ void startGame(){
 	    {
 	        startIndex = 0;
 	        oc3 = 20;
+            gameOver = 1;
 	    } 
 	}   
 
@@ -1202,6 +1239,6 @@ void startGame(){
 
     glFlush();
 	glutSwapBuffers();
+    boost = 0;
 
 }
-
