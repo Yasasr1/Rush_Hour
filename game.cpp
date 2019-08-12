@@ -48,7 +48,8 @@ int gameOver = 0;
 int score = 0;
 
 const int font=(int)GLUT_BITMAP_9_BY_15;
-const int font2=(int)GLUT_BITMAP_HELVETICA_18 ;
+const int font2=(int)GLUT_BITMAP_HELVETICA_18;
+const int font3 =(int)GLUT_BITMAP_TIMES_ROMAN_24;
 
 void renderBitmapString(float x, float y, void *font,const char *string){
     const char *c;
@@ -215,6 +216,11 @@ void displayMenu(){
 void startGame(){
 	glClearColor(0.337, 0.659, 0.196,1);
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+
+    char buffer [50];
+    sprintf (buffer, "SCORE: %d", score);
+    glColor3f(1.000, 1.000, 0.000);
+    renderBitmapString(80,95,(void *)font3,buffer);
 
 	//Road
     glColor3f(0.412, 0.412, 0.412);
