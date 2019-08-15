@@ -2,7 +2,7 @@
 
 Rush hour is a 2D racing game in c++ using openGL.
 
-our goal was develop a 2D attractive car racing game using opengl various graphic functions. In Rush hour the car can move using arrow keys. The score increases until it hit an obstacle, and when the car hit an obstacle the game ends. The score will dispayed at the end.
+our goal was to develop a 2D attractive car racing game using opengl various graphic functions. In Rush hour the car can move using arrow keys. The score increases until it hit an obstacle, and when the car hit an obstacle the game ends. The score will be displayed at the end.
 
 This game was developed as a mini project to get a good understanding and real life experience about openGL and it's functions.
 
