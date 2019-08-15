@@ -456,22 +456,22 @@ void displayMenu(){
     if(gameOver == 1)
     {
         glColor3f(1.000, 0.000, 0.000);
-        renderBitmapString(20,90,(void *)font2,"Game Over");
+        renderBitmapString(10,70,(void *)font2,"Game Over");
 
         char buffer [50];
         sprintf (buffer, "SCORE: %d", score);
         glColor3f(0.000, 1.000, 1.000);
-        renderBitmapString(20,80,(void *)font,buffer);
+        renderBitmapString(10,67,(void *)font,buffer);
 
 
     }
 
-    glColor3f(1.000, 1.000, 1.000);
-    renderBitmapString(42,90,(void *)font,"RUSH HOUR");
-    renderBitmapString(20,50,(void *)font,"PRESS SPACE TO START");
-    renderBitmapString(20,40,(void *)font,"PRESS LEFT TO GO LEFT");
-    renderBitmapString(20,30,(void *)font,"PRESS RIGHT TO GO RIGHT");
-    renderBitmapString(20,20,(void *)font,"PRESS UP TO BOOST");
+    glColor3f(0.000,0.000, 0.000);
+    renderBitmapString(10,60,(void *)font3,"RUSH HOUR");
+    renderBitmapString(10,50,(void *)font3,"PRESS SPACE TO START");
+    renderBitmapString(10,40,(void *)font3,"PRESS LEFT TO GO LEFT");
+    renderBitmapString(10,30,(void *)font3,"PRESS RIGHT TO GO RIGHT");
+    renderBitmapString(10,20,(void *)font3,"PRESS UP TO BOOST");
 
     
 
