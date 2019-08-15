@@ -155,6 +155,14 @@ void displayMenu(){
     glVertex2f(0,0);
     glEnd();
 
+    //left
+    glColor3f(0.337, 0.659, 0.196);
+    glBegin(GL_POLYGON);
+    glVertex2f(100,80);
+    glVertex2f(50,80);
+    glVertex2f(100,0);
+    glEnd();
+
     //Road
     glColor3f(0.412, 0.412, 0.412);
     glBegin(GL_POLYGON);
