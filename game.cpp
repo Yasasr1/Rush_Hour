@@ -260,6 +260,26 @@ void displayMenu(){
     glVertex2f(28,85);
     glEnd();
 
+    //H
+    glBegin(GL_POLYGON);
+    glVertex2f(40,96);
+    glVertex2f(41,96);
+    glVertex2f(41,84);
+    glVertex2f(40,84);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(40,91);
+    glVertex2f(40,90);
+    glVertex2f(48,90);
+    glVertex2f(48,91);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(47,96);
+    glVertex2f(48,96);
+    glVertex2f(48,84);
+    glVertex2f(47,84);
+    glEnd();
+
 	/*
     //Mountain
     glColor3f(0,0,1);
