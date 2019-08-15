@@ -255,10 +255,6 @@ void startGame(){
 	glClearColor(0.337, 0.659, 0.196,1);
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 
-    char buffer [50];
-    sprintf (buffer, "SCORE: %d", score);
-    glColor3f(1.000, 1.000, 0.000);
-    renderBitmapString(80,95,(void *)font3,buffer);
 
 	//Road
     glColor3f(0.412, 0.412, 0.412);
@@ -302,19 +298,6 @@ void startGame(){
         roadDivLeft1 =20;
     }
     
-    //2nd
-    /*glColor3f(1.000, 1.000, 0.000);
-    glBegin(GL_POLYGON);
-    glVertex2f(39,roadDivLeft2+61);
-    glVertex2f(39,roadDivLeft2+79);
-    glVertex2f(41,roadDivLeft2+79);
-    glVertex2f(41,roadDivLeft2+61);
-    glEnd();
-
-    roadDivLeft2--;
-    if(roadDivLeft2<-81){
-        roadDivLeft2 =40;
-    }*/
 
     //3rd
     glColor3f(1.000, 1.000, 0.000);
@@ -329,20 +312,6 @@ void startGame(){
     if(roadDivLeft3<-61){
         roadDivLeft3 =60;
     }
-
-    //4th
-    /*glColor3f(1.000, 1.000, 0.000);
-    glBegin(GL_POLYGON);
-    glVertex2f(39,roadDivLeft4+21);
-    glVertex2f(39,roadDivLeft4+39);
-    glVertex2f(41,roadDivLeft4+39);
-    glVertex2f(41,roadDivLeft4+21);
-    glEnd();
-
-     roadDivLeft4--;
-    if(roadDivLeft4<-41){
-        roadDivLeft4 =80;
-    }*/
 
     //5th
     glColor3f(1.000, 1.000, 0.000);
@@ -372,14 +341,6 @@ void startGame(){
     if(roadDivRight1<-101){
         roadDivRight1 =20;
     }
-    //2nd
-    /*glColor3f(1.000, 1.000, 0.000);
-    glBegin(GL_POLYGON);
-    glVertex2f(59,roadDivRight2+61);
-    glVertex2f(59,roadDivRight2+79);
-    glVertex2f(61,roadDivRight2+79);
-    glVertex2f(61,roadDivRight2+61);
-    glEnd();*/
 
     //3rd
     glColor3f(1.000, 1.000, 0.000);
@@ -394,15 +355,6 @@ void startGame(){
     if(roadDivRight3<-61){
         roadDivRight3 =60;
     }
-
-    //4th
-    /*glColor3f(1.000, 1.000, 0.000);
-    glBegin(GL_POLYGON);
-    glVertex2f(59,roadDivRight4+21);
-    glVertex2f(59,roadDivRight4+39);
-    glVertex2f(61,roadDivRight4+39);
-    glVertex2f(61,roadDivRight4+21);
-    glEnd();*/
 
     //5th
      glColor3f(1.000, 1.000, 0.000);
@@ -663,6 +615,13 @@ void startGame(){
     	glEnd(); 	
 
     glPopMatrix();
+
+
+    
+    char buffer [50];
+    sprintf (buffer, "SCORE: %d", score);
+    glColor3f(1.000, 1.000, 1.000);
+    renderBitmapString(80,95,(void *)font,buffer);
 
 
 
