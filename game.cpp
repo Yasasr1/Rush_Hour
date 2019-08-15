@@ -47,6 +47,21 @@ int gameOver = 0;
 //track score
 int score = 0;
 
+//opposite car1 colors
+float red1 = 0.5;
+float green1 =0.12;
+float blue1 = 0.3;
+
+//opposite car2 colors
+float red2 = 0.8;
+float green2 =0.12;
+float blue2= 0.6;
+
+//opposite car3 colors
+float red3 = 0.1;
+float green3 =0.12;
+float blue3 = 0.9;
+
 const int font=(int)GLUT_BITMAP_9_BY_15;
 const int font2=(int)GLUT_BITMAP_HELVETICA_18;
 const int font3 =(int)GLUT_BITMAP_TIMES_ROMAN_24;
@@ -968,10 +983,14 @@ void startGame(){
     {
         oc1 = 10;
         score++;
+        red1 = rand() / double(RAND_MAX);
+        green1 =rand() / double(RAND_MAX);
+        blue1 = rand() / double(RAND_MAX);
+
     }    
     glPushMatrix();
     glTranslatef(0,oc1,0);
-    glColor3f(0, 1, 1);
+    glColor3f(red1,green1,blue1);
 	glBegin(GL_POLYGON);                      
 	glVertex3f(24.0f, 99.0f, 0.0f);
 	glVertex3f(25.0f, 100.0f, 0.0f);
@@ -1065,11 +1084,14 @@ void startGame(){
     {
         oc2=100;
         score++;
+        red2 = rand() / double(RAND_MAX);
+        green2 =rand() / double(RAND_MAX);
+        blue2 = rand() / double(RAND_MAX);
     }
     	
     glPushMatrix();
     glTranslatef(0,oc2,0);
-    glColor3f(0, 1, 1);
+    glColor3f(red2,green2,blue2);
 	glBegin(GL_POLYGON);                      
 	glVertex3f(44.0f, 99.0f, 0.0f);
 	glVertex3f(45.0f, 100.0f, 0.0f);
@@ -1163,10 +1185,13 @@ void startGame(){
     {
         oc3 = 50;
         score++;
+        red3 = rand() / double(RAND_MAX);
+        green3 =rand() / double(RAND_MAX);
+        blue3 = rand() / double(RAND_MAX);
     }   
     glPushMatrix();
     glTranslatef(0,oc3,0);
-    glColor3f(0, 1, 1);
+    glColor3f(red3,green3,blue3);
 	glBegin(GL_POLYGON);                      
 	glVertex3f(64.0f, 99.0f, 0.0f);
 	glVertex3f(65.0f, 100.0f, 0.0f);
