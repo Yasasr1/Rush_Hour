@@ -280,6 +280,26 @@ void displayMenu(){
     glVertex2f(47,84);
     glEnd();
 
+    //H(2)
+    glBegin(GL_POLYGON);
+    glVertex2f(52,96);
+    glVertex2f(53,96);
+    glVertex2f(53,84);
+    glVertex2f(52,84);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(52,91);
+    glVertex2f(52,90);
+    glVertex2f(60,90);
+    glVertex2f(60,91);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(59,96);
+    glVertex2f(60,96);
+    glVertex2f(60,84);
+    glVertex2f(59,84);
+    glEnd();
+
     //O
     glBegin(GL_POLYGON);
     glVertex2f(64,96);
@@ -304,6 +324,71 @@ void displayMenu(){
     glVertex2f(72,85);
     glVertex2f(72,84);
     glVertex2f(64,84);
+    glEnd();
+
+    //U(2)
+    glBegin(GL_POLYGON);
+    glVertex2f(76,96);
+    glVertex2f(77,96);
+    glVertex2f(77,84);
+    glVertex2f(76,84);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(77,85);
+    glVertex2f(83,85);
+    glVertex2f(83,84);
+    glVertex2f(77,84);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(83,96);
+    glVertex2f(84,96);
+    glVertex2f(84,84);
+    glVertex2f(83,84);
+    glEnd();
+
+    //R(2)
+    glColor3f(1,1,1);
+    glBegin(GL_POLYGON);
+    glVertex2f(88,84);
+    glVertex2f(88,96);
+    glVertex2f(89,96);
+    glVertex2f(89,84);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(89,96);
+    glVertex2f(96,96);
+    glVertex2f(96,95);
+    glVertex2f(89,95);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(96,96);
+    glVertex2f(96,90);
+    glVertex2f(95,90);
+    glVertex2f(95,96);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(96,96);
+    glVertex2f(96,90);
+    glVertex2f(95,90);
+    glVertex2f(95,96);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(95,91);
+    glVertex2f(95,90);
+    glVertex2f(89,90);
+    glVertex2f(89,91);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(88,91);
+    glVertex2f(96,88);
+    glVertex2f(96,87);
+    glVertex2f(88,90);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(96,88);
+    glVertex2f(96,84);
+    glVertex2f(95,84);
+    glVertex2f(95,88);
     glEnd();
 
 	/*
