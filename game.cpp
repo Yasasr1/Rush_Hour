@@ -107,6 +107,7 @@ void menuKeys(unsigned char key, int x, int y) {
                 //roadDivRight4 = 0;
                 roadDivRight5 = 0;
                 gameOver = 0;
+                score = 0;
             }
             break;
 		case 27:
@@ -136,7 +137,7 @@ void spe_key(int key, int x, int y){
 	            }
 	            break;
             case GLUT_KEY_UP:
-                boost = 5;
+                boost = 4;
                 break;    
 	        default:
 	            break;
@@ -453,8 +454,7 @@ void displayMenu(){
     glVertex2f(50.5, 74);
     glEnd();
 
-    if(gameOver == 1)
-    {
+    if(gameOver == 1){
         glColor3f(1.000, 0.000, 0.000);
         renderBitmapString(10,70,(void *)font2,"Game Over");
 
@@ -462,8 +462,6 @@ void displayMenu(){
         sprintf (buffer, "SCORE: %d", score);
         glColor3f(0.000, 1.000, 1.000);
         renderBitmapString(10,67,(void *)font,buffer);
-
-
     }
 
     glColor3f(0.000,0.000, 0.000);
@@ -522,8 +520,8 @@ void startGame(){
     glEnd();
 
     roadDivLeft1 = roadDivLeft1 - 1 - boost;
-    if(roadDivLeft1<-101){
-        roadDivLeft1 =20;
+    if(roadDivLeft1<-100){
+        roadDivLeft1 =19;
     }
     
 
@@ -537,8 +535,8 @@ void startGame(){
     glEnd();
 
     roadDivLeft3 = roadDivLeft3 - 1 - boost;
-    if(roadDivLeft3<-61){
-        roadDivLeft3 =60;
+    if(roadDivLeft3<-60){
+        roadDivLeft3 =59;
     }
 
     //5th
@@ -551,8 +549,8 @@ void startGame(){
     glEnd();
 
     roadDivLeft5 = roadDivLeft5 - 1 - boost;
-    if(roadDivLeft5<-21){
-        roadDivLeft5 =100;
+    if(roadDivLeft5<-20){
+        roadDivLeft5 =99;
     }
 
     //Road Middel Right lines
@@ -566,8 +564,8 @@ void startGame(){
     glEnd();
     
     roadDivRight1 = roadDivRight1 - 1 - boost;
-    if(roadDivRight1<-101){
-        roadDivRight1 =20;
+    if(roadDivRight1<-100){
+        roadDivRight1 =19;
     }
 
     //3rd
@@ -580,8 +578,8 @@ void startGame(){
     glEnd();
 
     roadDivRight3 = roadDivRight3 - 1 - boost;
-    if(roadDivRight3<-61){
-        roadDivRight3 =60;
+    if(roadDivRight3<-60){
+        roadDivRight3 =59;
     }
 
     //5th
@@ -594,8 +592,8 @@ void startGame(){
     glEnd();
 
     roadDivRight5 = roadDivRight5 - 1 - boost;
-    if(roadDivRight5<-21){
-        roadDivRight5 =100;
+    if(roadDivRight5<-20){
+        roadDivRight5 =99;
     }
 
 //Buildings--------------------------------------------------
