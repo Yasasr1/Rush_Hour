@@ -228,6 +228,38 @@ void displayMenu(){
     glVertex2f(23,84);
     glEnd();
 
+     //S
+    glBegin(GL_POLYGON);
+    glVertex2f(28,96);
+    glVertex2f(36,96);
+    glVertex2f(36,95);
+    glVertex2f(28,95);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(28,96);
+    glVertex2f(29,96);
+    glVertex2f(29,90);
+    glVertex2f(28,90);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(29,91);
+    glVertex2f(29,90);
+    glVertex2f(36,90);
+    glVertex2f(36,91);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(36,90);
+    glVertex2f(36,84);
+    glVertex2f(35,84);
+    glVertex2f(35,90);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(36,85);
+    glVertex2f(36,84);
+    glVertex2f(28,84);
+    glVertex2f(28,85);
+    glEnd();
+
 	/*
     //Mountain
     glColor3f(0,0,1);
