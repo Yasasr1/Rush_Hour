@@ -144,7 +144,7 @@ void spe_key(int key, int x, int y){
 }
 
 void displayMenu(){
-    glClearColor(0, 0, 0,1);
+    glClearColor( 0.196078, 0.6, 0.8,1);
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 
     //left
@@ -162,6 +162,27 @@ void displayMenu(){
     glVertex2f(50,80);
     glVertex2f(100,0);
     glEnd();
+
+	/*
+    //Mountain
+    glColor3f(0,0,1);
+    glBegin(GL_POLYGON);
+    glVertex2f(0,82);
+    glVertex2f(14,83);
+    glVertex2f(24,85);
+    glVertex2f(32,81);
+    glVertex2f(36,84);
+    glVertex2f(56,82);
+    glVertex2f(64,83);
+    glVertex2f(72,85);
+    glVertex2f(80,81);
+    glVertex2f(84,82);
+    glVertex2f(88,85);
+    glVertex2f(100,80);
+    glVertex2f(100,83);
+    glVertex2f(0,80);  
+    glEnd();
+    */
 
     //Road
     glColor3f(0.412, 0.412, 0.412);
