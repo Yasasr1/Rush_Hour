@@ -163,6 +163,51 @@ void displayMenu(){
     glVertex2f(100,0);
     glEnd();
 
+    //R
+    glColor3f(1,1,1);
+    glBegin(GL_POLYGON);
+    glVertex2f(4,84);
+    glVertex2f(4,96);
+    glVertex2f(5,96);
+    glVertex2f(5,84);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(5,96);
+    glVertex2f(12,96);
+    glVertex2f(12,95);
+    glVertex2f(5,95);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(12,96);
+    glVertex2f(12,90);
+    glVertex2f(11,90);
+    glVertex2f(11,96);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(12,96);
+    glVertex2f(12,90);
+    glVertex2f(11,90);
+    glVertex2f(11,96);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(11,91);
+    glVertex2f(11,90);
+    glVertex2f(5,90);
+    glVertex2f(5,91);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(4,91);
+    glVertex2f(12,88);
+    glVertex2f(12,87);
+    glVertex2f(4,90);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(12,88);
+    glVertex2f(12,84);
+    glVertex2f(11,84);
+    glVertex2f(11,88);
+    glEnd();
+
 	/*
     //Mountain
     glColor3f(0,0,1);
@@ -238,8 +283,8 @@ void displayMenu(){
 
     }
 
-    glColor3f(1.000, 0.000, 0.000);
-    renderBitmapString(30,70,(void *)font,"RUSH HOUR");
+    glColor3f(1.000, 1.000, 1.000);
+    renderBitmapString(42,90,(void *)font,"RUSH HOUR");
     renderBitmapString(20,50,(void *)font,"PRESS SPACE TO START");
     renderBitmapString(20,40,(void *)font,"PRESS LEFT TO GO LEFT");
     renderBitmapString(20,30,(void *)font,"PRESS RIGHT TO GO RIGHT");
