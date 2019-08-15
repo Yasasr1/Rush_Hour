@@ -454,18 +454,44 @@ void displayMenu(){
     glVertex2f(50.5, 74);
     glEnd();
 
+    //menu board
+    /*glColor3f(0.098, 0.098, 0.439);
+        glBegin(GL_POLYGON);
+        glVertex2f(23,45);
+        glVertex2f(77,45);
+        glVertex2f(77,25);
+        glVertex2f(23,25);
+        glEnd();*/
+
+        
     if(gameOver == 1){
+        glColor3f(1, 1, 1);
+        glBegin(GL_POLYGON);
+        glVertex2f(22,76);
+        glVertex2f(78,76);
+        glVertex2f(78,64);
+        glVertex2f(22,64);
+        glEnd();
+
+        glColor3f(0.098, 0.098, 0.439);
+        glBegin(GL_POLYGON);
+        glVertex2f(23,75);
+        glVertex2f(77,75);
+        glVertex2f(77,65);
+        glVertex2f(23,65);
+        glEnd();
+
         glColor3f(1.000, 0.000, 0.000);
-        renderBitmapString(10,70,(void *)font2,"Game Over");
+        renderBitmapString(38,70,(void *)font3,"Game Over");
 
         char buffer [50];
         sprintf (buffer, "SCORE: %d", score);
         glColor3f(0.000, 1.000, 1.000);
-        renderBitmapString(10,67,(void *)font,buffer);
+        renderBitmapString(43,67,(void *)font,buffer);
     }
 
     glColor3f(0.000,0.000, 0.000);
-    renderBitmapString(10,60,(void *)font3,"RUSH HOUR");
+  
     renderBitmapString(10,50,(void *)font3,"PRESS SPACE TO START");
     renderBitmapString(10,40,(void *)font3,"PRESS LEFT TO GO LEFT");
     renderBitmapString(10,30,(void *)font3,"PRESS RIGHT TO GO RIGHT");
