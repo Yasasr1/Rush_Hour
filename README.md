@@ -28,6 +28,7 @@ This game was developed as a mini project to get a good understanding and real l
 * 'up' arrow key: boost
 * 'left' arrow key: move left
 * 'right' arrow key: move right
+* ‘Esc' key: to exit
 
 # Game objective 
 
