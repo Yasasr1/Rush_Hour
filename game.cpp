@@ -1,9 +1,5 @@
- #include<windows.h>
-#ifdef __APPLE__
-#include <GLUT/glut.h>
-#else
+//#include<windows.h>
 #include <GL/glut.h>
-#endif
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
@@ -13,14 +9,10 @@ int FPS = 60;
 //to move the road
 int roadDivTopMost = 0;
 int roadDivLeft1 = 0;
-//int roadDivLeft2 = 0;
 int roadDivLeft3 = 0;
-//int roadDivLeft4 = 0;
 int roadDivLeft5 = 0;
 int roadDivRight1 = 0;
-//int roadDivRight2 = 0;
 int roadDivRight3 = 0;
-//int roadDivRight4 = 0;
 int roadDivRight5 = 0;
 //to move buildings
 int l1 = 0;
@@ -86,10 +78,10 @@ int main(int argc, char *argv[]){
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
     glutInitWindowSize(500,650);
     glutInitWindowPosition(200,20);
-    glutCreateWindow("Car Game");
+    glutCreateWindow("Rush Hour");
     glutDisplayFunc(display);
     glutSpecialFunc(spe_key);
-    glutKeyboardFunc(menuKeys );
+    glutKeyboardFunc(menuKeys);
     gluOrtho2D(0,100,0,100);
     glutTimerFunc(1000,timer,0);
     glutMainLoop();
@@ -167,7 +159,7 @@ void displayMenu(){
     glVertex2f(0,0);
     glEnd();
 
-    //left
+    //right
     glColor3f(0.337, 0.659, 0.196);
     glBegin(GL_POLYGON);
     glVertex2f(100,80);
@@ -622,6 +614,62 @@ void startGame(){
         roadDivRight5 =99;
     }
 
+ // Tree------------------------------------------------------------------
+     t = t - 1 - boost;
+    if(t<-20)
+        t = 100;
+
+    glPushMatrix();
+    glTranslatef(0,t,0);
+    
+	glColor3f(0, 0.5,0);
+    	glBegin(GL_QUADS);                      
+	glVertex3f(84.0f, 13.0f, 0.0f);              
+    	glVertex3f( 94.0f, 13.0f, 0.0f);             
+    	glVertex3f( 94.0f,3.0f, 0.0f);              
+    	glVertex3f(84.0f,3.0f, 0.0f);             
+    	glEnd(); 
+
+
+	glColor3f(0, 1, 0);
+    	glBegin(GL_POLYGON);
+   	glVertex2f(89.0f,16.0f);
+    	glVertex2f(91.0f, 10.0f);
+    	glVertex2f(97.0f,8.0f);
+    	glVertex2f(91.0f,6.0f);
+	glVertex2f(89.0f,0.0f);
+	glVertex2f(87.0f,6.0f);
+	glVertex2f(81.0f,8.0f);
+	glVertex2f(87.0f, 10.0f);
+    	glEnd();
+
+
+
+
+
+	glColor3f(1, 0.5,1);
+    	glBegin(GL_QUADS);                      
+	glVertex3f(87.0f, 10.0f, 0.0f);              
+    	glVertex3f( 91.0f, 10.0f, 0.0f);             
+    	glVertex3f( 91.0f,6.0f, 0.0f);              
+    	glVertex3f(87.0f,6.0f, 0.0f);             
+    	glEnd(); 	
+
+    glPopMatrix();
+
+
+    
+    char buffer [50];
+    sprintf (buffer, "SCORE: %d", score);
+    glColor3f(1.000, 1.000, 1.000);
+    renderBitmapString(80,95,(void *)font,buffer);
+
+
+
+
+//Tree ends--------------------------------------------------------------
+   
+
 //Buildings--------------------------------------------------
     l1 = l1 - 1 - boost;
     if(l1<-20)
@@ -825,60 +873,6 @@ void startGame(){
     glPopMatrix();        
 	
 	//Building Ends---------------------------------------------
-// Tree------------------------------------------------------------------
-     t = t - 1 - boost;
-    if(t<-20)
-        t = 100;
-
-    glPushMatrix();
-    glTranslatef(0,t,0);
-    
-	glColor3f(0, 0.5,0);
-    	glBegin(GL_QUADS);                      
-	glVertex3f(84.0f, 13.0f, 0.0f);              
-    	glVertex3f( 94.0f, 13.0f, 0.0f);             
-    	glVertex3f( 94.0f,3.0f, 0.0f);              
-    	glVertex3f(84.0f,3.0f, 0.0f);             
-    	glEnd(); 
-
-
-	glColor3f(0, 1, 0);
-    	glBegin(GL_POLYGON);
-   	glVertex2f(89.0f,16.0f);
-    	glVertex2f(91.0f, 10.0f);
-    	glVertex2f(97.0f,8.0f);
-    	glVertex2f(91.0f,6.0f);
-	glVertex2f(89.0f,0.0f);
-	glVertex2f(87.0f,6.0f);
-	glVertex2f(81.0f,8.0f);
-	glVertex2f(87.0f, 10.0f);
-    	glEnd();
-
-
-
-
-
-	glColor3f(1, 0.5,1);
-    	glBegin(GL_QUADS);                      
-	glVertex3f(87.0f, 10.0f, 0.0f);              
-    	glVertex3f( 91.0f, 10.0f, 0.0f);             
-    	glVertex3f( 91.0f,6.0f, 0.0f);              
-    	glVertex3f(87.0f,6.0f, 0.0f);             
-    	glEnd(); 	
-
-    glPopMatrix();
-
-
-    
-    char buffer [50];
-    sprintf (buffer, "SCORE: %d", score);
-    glColor3f(1.000, 1.000, 1.000);
-    renderBitmapString(80,95,(void *)font,buffer);
-
-
-
-
-//Tree ends--------------------------------------------------------------
 
 //CAR-----------------------------------------------------------
     //body
@@ -962,7 +956,7 @@ void startGame(){
     glEnd();  
     glPopMatrix();
 
-//CAR2-----------------------------------------------------------
+//CAR1-----------------------------------------------------------
     //body
     oc1 = oc1 - 0.5 - boost;
     if(oc1<-100)
@@ -1053,7 +1047,7 @@ void startGame(){
     glEnd(); 
     glPopMatrix(); 
 
-    //collision detection CAR Vs CAR2
+    //collision detection CAR Vs CAR1
     if(oc1 < -71){
 	    if(37+steer > 23 && 23+steer < 37)
 	    {
@@ -1063,7 +1057,7 @@ void startGame(){
 	    } 
 	}    
 
-//CAR3-----------------------------------------------------------
+//CAR2-----------------------------------------------------------
     //body
     oc2 = oc2 - 0.4 - boost;
     if(oc2<-100)
@@ -1154,7 +1148,7 @@ void startGame(){
     glEnd();
     glPopMatrix();  
 
-    //collision detection CAR Vs CAR3
+    //collision detection CAR Vs CAR2
 	if(oc2 < -71){
 	    if(37+steer > 43 && 23+steer < 57)
 	    {
@@ -1164,7 +1158,7 @@ void startGame(){
 	    } 
 	}   
 
-//CAR4-----------------------------------------------------------
+//CAR3-----------------------------------------------------------
     //body
     oc3 = oc3 - 0.2 - boost;
     if(oc3<-100)
@@ -1254,7 +1248,7 @@ void startGame(){
     glEnd(); 
     glPopMatrix();
 
-    //collision detection CAR Vs CAR4
+    //collision detection CAR Vs CAR3
     if(oc3 < -71){
 	    if(37+steer > 63 && 23+steer < 77)
 	    {
